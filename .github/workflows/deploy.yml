@@ -41,10 +41,14 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: npm run build
 
+      - name: Disable Jekyll processing
+        run: touch out/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+          include-hidden-files: true
 
   deploy:
     needs: build
