@@ -62,7 +62,7 @@ export function Projects() {
       <div className="section-shell">
         <div className="section-heading">
           <span className="section-index">04.</span>
-          <h2 className="text-2xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">Principais Projetos</h2>
+          <h2 className="text-2xl font-medium uppercase tracking-[0.04em] sm:text-4xl">Principais Projetos</h2>
           <div className="section-rule" />
         </div>
 
@@ -86,7 +86,7 @@ export function Projects() {
                 <p className="mb-2 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-primary">
                   Projeto em Destaque
                 </p>
-                <h3 className="mb-4 font-(--font-display) text-3xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">
+                <h3 className="mb-4 font-(--font-display) text-3xl font-medium uppercase tracking-[0.03em] sm:text-4xl">
                   {project.title}
                 </h3>
                 <div className="brutal-panel mb-4 p-6">
@@ -111,7 +111,7 @@ export function Projects() {
         </div>
 
         <div>
-          <h3 className="mb-12 text-center font-(--font-display) text-2xl font-semibold uppercase tracking-[-0.03em]">
+          <h3 className="mb-12 text-center font-(--font-display) text-2xl font-medium uppercase tracking-[0.03em]">
             Outros projetos (parte acadêmica)
           </h3>
           <div className="grid gap-4 md:grid-cols-2">
@@ -129,7 +129,7 @@ export function Projects() {
                   </div>
                   <ArrowUpRight className="text-muted-foreground transition-colors group-hover:text-primary" size={18} />
                 </div>
-                <h4 className="mb-2 font-(--font-display) text-lg font-semibold uppercase tracking-[-0.03em] transition-colors group-hover:text-primary">
+                <h4 className="mb-2 font-(--font-display) text-lg font-medium uppercase tracking-[0.03em] transition-colors group-hover:text-primary">
                   {project.title}
                 </h4>
                 <p className="mb-4 text-sm leading-6 text-muted-foreground">
@@ -148,7 +148,7 @@ export function Projects() {
         </div>
 
         <div className="mt-24">
-          <h3 className="mb-8 text-center font-(--font-display) text-2xl font-semibold uppercase tracking-[-0.03em]">
+          <h3 className="mb-8 text-center font-(--font-display) text-2xl font-medium uppercase tracking-[0.03em]">
             Sites entregues
           </h3>
           <div className="brutal-panel overflow-hidden">
@@ -161,7 +161,7 @@ export function Projects() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-between gap-4 px-6 py-4 transition-colors hover:bg-card/50"
                 >
-                  <span className="font-(--font-display) text-lg font-semibold uppercase tracking-[-0.03em]">
+                  <span className="font-(--font-display) text-lg font-medium uppercase tracking-[0.03em]">
                     {site.name}
                   </span>
                   <span className="break-all font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground sm:text-sm">

@@ -9,7 +9,7 @@ export function Contact() {
       <div className="mx-auto max-w-4xl px-6 text-center">
         <div className="mb-8 flex items-center justify-center gap-4">
           <span className="section-index">05.</span>
-          <h2 className="text-2xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">Entre em contato</h2>
+          <h2 className="text-2xl font-medium uppercase tracking-[0.04em] sm:text-4xl">Entre em contato</h2>
         </div>
 
         <p className="mx-auto mb-12 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
@@ -25,7 +25,7 @@ export function Contact() {
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-border bg-background text-primary transition-colors group-hover:border-primary">
               <Mail size={24} />
             </div>
-            <h3 className="mb-1 font-(--font-display) text-lg font-medium uppercase tracking-[-0.03em]">E-mail</h3>
+            <h3 className="mb-1 font-(--font-display) text-lg font-medium uppercase tracking-[0.03em]">E-mail</h3>
             <p className="text-sm text-muted-foreground">kaykyzioti@gmail.com</p>
           </Link>
 
@@ -38,7 +38,7 @@ export function Contact() {
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-border bg-background text-primary transition-colors group-hover:border-primary">
               <Linkedin size={24} />
             </div>
-            <h3 className="mb-1 font-(--font-display) text-lg font-medium uppercase tracking-[-0.03em]">LinkedIn</h3>
+            <h3 className="mb-1 font-(--font-display) text-lg font-medium uppercase tracking-[0.03em]">LinkedIn</h3>
             <p className="text-sm text-muted-foreground">/in/kaykyzioti</p>
           </Link>
 
@@ -51,7 +51,7 @@ export function Contact() {
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-border bg-background text-primary transition-colors group-hover:border-primary">
               <Github size={24} />
             </div>
-            <h3 className="mb-1 font-(--font-display) text-lg font-medium uppercase tracking-[-0.03em]">GitHub</h3>
+            <h3 className="mb-1 font-(--font-display) text-lg font-medium uppercase tracking-[0.03em]">GitHub</h3>
             <p className="text-sm text-muted-foreground">/kaykyone</p>
           </Link>
         </div>

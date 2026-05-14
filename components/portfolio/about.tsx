@@ -33,7 +33,7 @@ export function About() {
       <div className="section-shell">
         <div className="section-heading">
           <span className="section-index">01.</span>
-          <h2 className="text-2xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">Sobre mim</h2>
+          <h2 className="text-2xl font-medium uppercase tracking-[0.04em] sm:text-4xl">Sobre mim</h2>
           <div className="section-rule" />
         </div>
 
@@ -76,7 +76,7 @@ export function About() {
                 <div className="mb-5 flex h-12 w-12 items-center justify-center border border-border bg-background text-primary transition-colors group-hover:border-primary">
                   <item.icon size={24} />
                 </div>
-                <h3 className="mb-2 font-(--font-display) text-lg font-semibold uppercase tracking-[-0.03em] text-foreground">
+                <h3 className="mb-2 font-(--font-display) text-lg font-medium uppercase tracking-[0.03em] text-foreground">
                   {item.title}
                 </h3>
                 <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>

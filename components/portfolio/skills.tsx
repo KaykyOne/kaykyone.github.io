@@ -48,7 +48,7 @@ export function Skills() {
       <div className="section-shell">
         <div className="section-heading">
           <span className="section-index">03.</span>
-          <h2 className="text-2xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">Competências técnicas</h2>
+          <h2 className="text-2xl font-medium uppercase tracking-[0.04em] sm:text-4xl">Competências técnicas</h2>
           <div className="section-rule" />
         </div>
 
@@ -63,7 +63,7 @@ export function Skills() {
                   <div className="flex h-10 w-10 items-center justify-center border border-border bg-background text-primary">
                     <category.icon size={18} />
                   </div>
-                  <h3 className="font-(--font-display) text-lg font-semibold uppercase tracking-[-0.03em]">
+                  <h3 className="font-(--font-display) text-lg font-medium uppercase tracking-[0.03em]">
                     {category.title}
                   </h3>
                 </div>
@@ -96,7 +96,7 @@ export function Skills() {
             ].map((tech, index) => (
               <span
                 key={index}
-                className="font-(--font-display) text-3xl font-bold uppercase tracking-tighter text-foreground/18 sm:text-5xl"
+                className="font-(--font-display) text-3xl font-medium uppercase tracking-[0.05em] text-foreground/18 sm:text-5xl"
               >
                 {tech}
               </span>

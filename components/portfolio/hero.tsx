@@ -24,7 +24,7 @@ export function Hero() {
               Desenvolvedor Full-Stack / Sistemas, Produto, Execução
             </p>
 
-            <h1 className="mb-6 max-w-4xl font-(--font-display) text-5xl font-bold uppercase leading-[0.92] tracking-[-0.06em] text-balance text-foreground sm:text-7xl md:text-[5.8rem]">
+            <h1 className="mb-6 max-w-4xl font-(--font-display) text-5xl font-medium uppercase leading-[0.92] tracking-[0.03em] text-balance text-foreground sm:text-7xl md:text-[5.8rem]">
               Kayky Zioti
             </h1>
 

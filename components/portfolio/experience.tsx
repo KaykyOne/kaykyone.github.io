@@ -51,7 +51,7 @@ export function Experience() {
       <div className="section-shell">
         <div className="section-heading">
           <span className="section-index">02.</span>
-          <h2 className="text-2xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">Experiência</h2>
+          <h2 className="text-2xl font-medium uppercase tracking-[0.04em] sm:text-4xl">Experiência</h2>
           <div className="section-rule" />
         </div>
 
@@ -77,7 +77,7 @@ export function Experience() {
 
           {activeExperience && (
             <div className="brutal-panel px-7 py-8">
-              <h3 className="mb-2 font-(--font-display) text-2xl font-semibold uppercase tracking-[-0.04em]">
+              <h3 className="mb-2 font-(--font-display) text-2xl font-medium uppercase tracking-[0.03em]">
                 {activeExperience.role} <span className="text-primary">@ {activeExperience.company}</span>
               </h3>
               <p className="mb-6 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-muted-foreground">
