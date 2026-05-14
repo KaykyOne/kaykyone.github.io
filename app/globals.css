@@ -4,6 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-code: "Cascadia Mono", "IBM Plex Mono", Consolas, "Courier New", monospace;
   --background: #0a0a0a;
   --foreground: #ffffff;
   --card: #111111;
@@ -75,8 +78,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
-  --font-mono: var(--font-mono), 'IBM Plex Mono', monospace;
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-code);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

@@ -37,9 +37,8 @@ jobs:
 
       - name: Build static site
         env:
-          GITHUB_PAGES: 'true'
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: npm run build
+        run: npm run build:pages
 
       - name: Disable Jekyll processing
         run: touch out/.nojekyll

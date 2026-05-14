@@ -1,24 +1,7 @@
 import type { Metadata } from 'next'
-import { IBM_Plex_Mono, Inter, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { withBasePath } from '@/lib/base-path'
-
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: '--font-inter'
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: '--font-display'
-});
-
-const ibmPlexMono = IBM_Plex_Mono({ 
-  subsets: ["latin"],
-  weight: ['400', '500', '600'],
-  variable: '--font-mono'
-});
 
 export const metadata: Metadata = {
   title: 'Kayky Zioti | Desenvolvedor Full-Stack e Designer',
@@ -52,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="bg-background scroll-smooth">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
