@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 const navItems = [
   { label: "Sobre", href: "#sobre" },
   { label: "Experiência", href: "#experiencia" },
-  { label: "Skills", href: "#skills" },
+  { label: "Habilidades", href: "#skills" },
   { label: "Projetos", href: "#projetos" },
   { label: "Contato", href: "#contato" },
 ]
@@ -28,33 +28,29 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border"
-          : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-150",
+        isScrolled ? "border-b border-border bg-background" : "bg-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="section-shell py-4">
         <nav className="flex items-center justify-between">
           <Link
             href="/"
-            className="text-xl font-bold tracking-tight hover:text-primary transition-colors"
+            className="font-mono text-sm uppercase tracking-[0.32em] text-foreground transition-colors hover:text-primary"
           >
-            <span className="text-primary">{"<"}</span>
+            <span className="text-primary">{"["}</span>
             KZ
-            <span className="text-primary">{" />"}</span>
+            <span className="text-primary">{"]"}</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group"
+                  className="font-mono text-[0.72rem] uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full" />
                 </Link>
               </li>
             ))}
@@ -63,31 +59,29 @@ export function Header() {
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="#contato"
-              className="px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-sm-sm hover:opacity-90 transition-opacity"
+              className="brutal-button border-primary bg-primary px-4 py-2 text-[0.72rem] text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
             >
               Vamos conversar
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden border border-border p-2 text-foreground transition-colors hover:border-primary hover:text-primary"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Abrir menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </nav>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border">
-            <ul className="flex flex-col p-6 gap-4">
+          <div className="absolute top-full left-0 right-0 border-b border-border bg-background md:hidden">
+            <ul className="flex flex-col gap-4 p-6">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+                    className="font-mono text-sm uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
@@ -97,7 +91,7 @@ export function Header() {
               <li className="pt-4">
                 <Link
                   href="#contato"
-                  className="block text-center px-4 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-sm-sm"
+                  className="block border border-primary bg-primary px-4 py-3 text-center font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Vamos conversar

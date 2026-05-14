@@ -8,7 +8,7 @@ const highlights = [
   {
     icon: Code2,
     title: "Full-Stack",
-    description: "Frontend, Backend, Database, DevOps",
+    description: "Front-end, back-end, banco de dados e DevOps",
   },
   {
     icon: Users,
@@ -17,71 +17,69 @@ const highlights = [
   },
   {
     icon: Rocket,
-    title: "Startup Founder",
+    title: "Fundador de startup",
     description: "Do zero ao cliente pagante",
   },
   {
     icon: Zap,
     title: "Performance",
-    description: "Otimização é prioridade em tudo",
+    description: "A otimização é prioridade em tudo",
   },
 ]
 
 export function About() {
   return (
-    <section id="sobre" className="py-24 sm:py-32 relative">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section header */}
-        <div className="flex items-center gap-4 mb-16">
-          <span className="text-primary font-mono text-sm">01.</span>
-          <h2 className="text-2xl sm:text-3xl font-bold">Sobre mim</h2>
-          <div className="h-px bg-border flex-1 max-w-xs" />
+    <section id="sobre" className="relative py-24 sm:py-32">
+      <div className="section-shell">
+        <div className="section-heading">
+          <span className="section-index">01.</span>
+          <h2 className="text-2xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">Sobre mim</h2>
+          <div className="section-rule" />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Text content */}
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="space-y-6">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Sou <span className="text-foreground font-medium">Kayky Zioti</span>, desenvolvedor full-stack 
+            <p className="text-lg leading-8 text-muted-foreground">
+              Sou <span className="font-medium text-foreground">Kayky Zioti</span>, desenvolvedor full-stack
               com foco em criar soluções web escaláveis, rápidas e com excelente UX/UI.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Especialista em arquitetura moderna, otimização de performance e automação com IA. 
+            <p className="text-lg leading-8 text-muted-foreground">
+              Especialista em arquitetura moderna, otimização de performance e automação com IA.
               Combino desenvolvimento técnico sólido com visão de negócio.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              <span className="text-primary font-medium">Meu diferencial:</span> Consigo entender o que o cliente 
+            <p className="text-lg leading-8 text-muted-foreground">
+              <span className="font-medium text-primary">Meu diferencial:</span> consigo entender o que o cliente
               realmente precisa e transformar isso em produtos que geram resultados mensuráveis.
             </p>
 
-            {/* Quick facts */}
-            <div className="pt-6 space-y-3">
+            <div className="brutal-panel space-y-3 px-6 pb-6 pt-6">
               {[
                 `Sistemas em produção com +${activateUsersNumber} usuários ativos`,
-                "Experiência em startup do zero ao cliente pagante",
+                "Experiência em startup, do zero ao cliente pagante",
                 "Foco em performance e otimização",
                 "Integração de IA em produtos web",
               ].map((fact, index) => (
-                <div key={index} className="flex items-center gap-3 text-muted-foreground">
-                  <CheckCircle2 className="text-primary shrink-0" size={18} />
+                <div key={index} className="flex items-center gap-3 text-sm uppercase tracking-wider text-muted-foreground">
+                  <CheckCircle2 className="shrink-0 text-primary" size={16} />
                   <span>{fact}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Highlight cards */}
           <div className="grid grid-cols-2 gap-4">
             {highlights.map((item, index) => (
               <div
                 key={index}
-                className="group p-6 bg-card rounded-sm-sm border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+                className="brutal-panel group p-6 transition-[border-color,transform] duration-150 hover:-translate-y-px hover:border-primary"
               >
-                <div className="w-12 h-12 flex items-center justify-center rounded-sm-sm bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center border border-border bg-background text-primary transition-colors group-hover:border-primary">
                   <item.icon size={24} />
                 </div>
-                <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <h3 className="mb-2 font-(--font-display) text-lg font-semibold uppercase tracking-[-0.03em] text-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
               </div>
             ))}
           </div>

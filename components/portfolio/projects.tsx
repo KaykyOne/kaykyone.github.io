@@ -1,7 +1,7 @@
 "use client"
 
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react"
-import Link from "next/link"
+import { ArrowUpRight, Github } from "lucide-react"
+import { withBasePath } from "@/lib/base-path"
 
 const featuredProjects = [
   {
@@ -37,46 +37,71 @@ const otherProjects = [
   },
 ]
 
+const deliveredSites = [
+  {
+    name: "NovusTech",
+    link: "https://thenovustech.com.br/",
+  },
+  {
+    name: "Legalize Obras",
+    link: "https://legalizeobras.com.br/",
+  },
+  {
+    name: "Autoescola Danda",
+    link: "https://autoescoladanda.com.br",
+  },
+  {
+    name: "Autoescola Ideal",
+    link: "https://autoescolaidealjales.com.br",
+  },
+]
+
 export function Projects() {
   return (
-    <section id="projetos" className="py-24 sm:py-32 bg-card/30">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section header */}
-        <div className="flex items-center gap-4 mb-16">
-          <span className="text-primary font-mono text-sm">04.</span>
-          <h2 className="text-2xl sm:text-3xl font-bold">Principais Projetos</h2>
-          <div className="h-px bg-border flex-1 max-w-xs" />
+    <section id="projetos" className="bg-card/30 py-24 sm:py-32">
+      <div className="section-shell">
+        <div className="section-heading">
+          <span className="section-index">04.</span>
+          <h2 className="text-2xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">Principais Projetos</h2>
+          <div className="section-rule" />
         </div>
 
-        {/* Featured projects */}
-        <div className="space-y-24 mb-24">
+        <div className="mb-24 space-y-24">
           {featuredProjects.map((project, index) => (
             <div
               key={index}
-              className={`grid lg:grid-cols-2 gap-8 items-center ${
+              className={`grid items-center gap-8 lg:grid-cols-2 ${
                 index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
               }`}
             >
-              {/* Project image placeholder */}
-               <img src={project.image} alt={project.title} className="relative aspect-video rounded-sm-sm overflow-hidden from-primary/20 via-card to-card hover:scale-105 transition-all duration-300 hover:shadow-lg shadow-primary/10" />
+              <div className="brutal-panel overflow-hidden">
+                <img
+                  src={withBasePath(project.image)}
+                  alt={project.title}
+                  className="relative aspect-video w-full object-cover transition-transform duration-150 hover:scale-[1.02]"
+                />
+              </div>
 
-              {/* Project info */}
               <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
-                <p className="text-primary font-mono text-sm mb-2">Projeto em Destaque</p>
-                <h3 className="text-2xl sm:text-3xl font-bold mb-4">{project.title}</h3>
-                <div className="p-6 bg-card rounded-sm-sm border border-border mb-4">
-                  <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                <p className="mb-2 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-primary">
+                  Projeto em Destaque
+                </p>
+                <h3 className="mb-4 font-(--font-display) text-3xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">
+                  {project.title}
+                </h3>
+                <div className="brutal-panel mb-4 p-6">
+                  <p className="leading-7 text-muted-foreground">{project.description}</p>
                 </div>
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="mb-6 flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="text-sm font-mono text-muted-foreground">
+                    <span key={tech} className="brutal-tag">
                       {tech}
                     </span>
                   ))}
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/15 text-primary rounded-sm-sm text-sm font-medium">
-                    <span className="w-2 h-2 bg-primary rounded-sm-sm" />
+                  <span className="inline-flex items-center gap-2 border border-primary/45 px-3 py-1.5 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-primary">
+                    <span className="h-2 w-2 bg-primary" />
                     {project.status}
                   </span>
                 </div>
@@ -85,42 +110,66 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Other projects */}
         <div>
-          <h3 className="text-xl font-semibold text-center mb-12">Outros Projetos (Parte Acadêmica)</h3>
-          <div className="grid md:grid-cols-2 gap-4">
+          <h3 className="mb-12 text-center font-(--font-display) text-2xl font-semibold uppercase tracking-[-0.03em]">
+            Outros projetos (parte acadêmica)
+          </h3>
+          <div className="grid gap-4 md:grid-cols-2">
             {otherProjects.map((project, index) => (
               <a
                 key={index}
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-6 bg-card rounded-sm-sm border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+                className="brutal-panel group p-6 transition-[border-color,transform] duration-150 hover:-translate-y-px hover:border-primary"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-sm-sm bg-primary/10 text-primary">
+                <div className="mb-4 flex items-start justify-between">
+                  <div className="flex h-10 w-10 items-center justify-center border border-border bg-background text-primary">
                     <Github size={20} />
                   </div>
-                  <ArrowUpRight className="text-muted-foreground group-hover:text-primary transition-colors" size={20} />
+                  <ArrowUpRight className="text-muted-foreground transition-colors group-hover:text-primary" size={18} />
                 </div>
-                <h4 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                <h4 className="mb-2 font-(--font-display) text-lg font-semibold uppercase tracking-[-0.03em] transition-colors group-hover:text-primary">
                   {project.title}
                 </h4>
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                <p className="mb-4 text-sm leading-6 text-muted-foreground">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs font-mono text-muted-foreground"
-                    >
+                    <span key={tech} className="brutal-tag">
                       {tech}
                     </span>
                   ))}
                 </div>
               </a>
             ))}
+          </div>
+        </div>
+
+        <div className="mt-24">
+          <h3 className="mb-8 text-center font-(--font-display) text-2xl font-semibold uppercase tracking-[-0.03em]">
+            Sites entregues
+          </h3>
+          <div className="brutal-panel overflow-hidden">
+            <div className="divide-y divide-border">
+              {deliveredSites.map((site) => (
+                <a
+                  key={site.name}
+                  href={site.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between gap-4 px-6 py-4 transition-colors hover:bg-card/50"
+                >
+                  <span className="font-(--font-display) text-lg font-semibold uppercase tracking-[-0.03em]">
+                    {site.name}
+                  </span>
+                  <span className="break-all font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground sm:text-sm">
+                    {site.link}
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

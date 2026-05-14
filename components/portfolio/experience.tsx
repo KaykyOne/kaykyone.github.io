@@ -7,9 +7,9 @@ const experiences = [
   {
     id: "novustech",
     company: "NovusTech",
-    role: "Desenvolvedor / Founder",
+    role: "Desenvolvedor / Fundador",
     period: "2024 - Presente",
-    description: "Lidero o desenvolvimento de soluções web da concepção à entrega. Um exemplo é o NovusCFC, sistema de gestão para autoescolas que otimizou processos e melhorou a experiência do usuário.",
+    description: "Lidero o desenvolvimento de soluções web, da concepção à entrega. Um exemplo é o NovusCFC, sistema de gestão para autoescolas que otimizou processos e melhorou a experiência do usuário.",
     skills: ["React", "Node.js", "TypeScript", ".NET", "PostgreSQL", "Docker", "UX/UI", "Figma"],
     link: "https://thenovustech.com.br/",
   },
@@ -18,16 +18,16 @@ const experiences = [
     company: "EnterScience",
     role: "Estagiário de Desenvolvimento de Software Full-Stack",
     period: "2026 - Presente",
-    description: "Atuo no desenvolvimento de soluções web, contribuindo para projetos de pesquisa e inovação. Participo de todas as fases do ciclo de desenvolvimento, desde a análise de requisitos até a implementação e testes, utilizando tecnologias modernas para entregar resultados eficientes.",
-    skills: ["Laravel", "PHP", "Next", "Tailwind CSS", "Typescript", "PostgreSQL", "Git"],
+    description: "Atuo no desenvolvimento de soluções web, contribuindo para projetos de pesquisa e inovação. Participo de todas as fases do ciclo de desenvolvimento, desde a análise de requisitos até a implementação e os testes, utilizando tecnologias modernas para entregar resultados eficientes.",
+    skills: ["Laravel", "PHP", "Next", "Tailwind CSS", "TypeScript", "PostgreSQL", "Git"],
     link: "https://enterscience.com.br",
   },
   {
     id: "danda",
     company: "Autoescola Danda",
-    role: "Social Media & Lead Generation Strategist",
+    role: "Estratégia de mídias sociais e geração de leads",
     period: "2025 - 2026",
-    description: "Lidero a estratégia de social media e geração de leads, criando campanhas em Facebook, Instagram e LinkedIn para aumentar visibilidade e captação. Acompanho métricas e otimizo ações para sustentar o crescimento da empresa.",
+    description: "Lidero a estratégia de mídias sociais e geração de leads, criando campanhas no Facebook, Instagram e LinkedIn para aumentar a visibilidade e a captação. Acompanho métricas e otimizo ações para sustentar o crescimento da empresa.",
     skills: ["Meta Ads", "Google Ads", "UX/UI", "Figma", "Instagram Ads"],
     link: "https://autoescoladanda.com.br",
   },
@@ -36,8 +36,8 @@ const experiences = [
     company: "Autoescola Ideal",
     role: "Gerente Administrativo",
     period: "2023 - 2026",
-    description: "Liderei equipe e operação administrativa, otimizando processos internos e implantando sistemas de gestão que elevaram organização e produtividade. Criei estratégias para melhorar a experiência e satisfação dos alunos.",
-    skills: ["Python", "Javascript", "UX/UI", "Excel"],
+    description: "Liderei a equipe e a operação administrativa, otimizando processos internos e implantando sistemas de gestão que elevaram a organização e a produtividade. Criei estratégias para melhorar a experiência e a satisfação dos alunos.",
+    skills: ["Python", "JavaScript", "UX/UI", "Excel"],
     link: "https://autoescolaidealjales.com.br",
   },
 ]
@@ -47,61 +47,57 @@ export function Experience() {
   const activeExperience = experiences.find((exp) => exp.id === activeTab)
 
   return (
-    <section id="experiencia" className="py-24 sm:py-32 bg-card/30">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section header */}
-        <div className="flex items-center gap-4 mb-16">
-          <span className="text-primary font-mono text-sm">02.</span>
-          <h2 className="text-2xl sm:text-3xl font-bold">Experiência</h2>
-          <div className="h-px bg-border flex-1 max-w-xs" />
+    <section id="experiencia" className="bg-card/30 py-24 sm:py-32">
+      <div className="section-shell">
+        <div className="section-heading">
+          <span className="section-index">02.</span>
+          <h2 className="text-2xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">Experiência</h2>
+          <div className="section-rule" />
         </div>
 
-        <div className="grid md:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr] gap-6 md:gap-12">
-          {/* Tabs */}
-          <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible border-b md:border-b-0 md:border-l border-border">
+        <div className="grid gap-6 md:grid-cols-[200px_1fr] md:gap-12 lg:grid-cols-[250px_1fr]">
+          <div className="flex overflow-x-auto border-b border-border md:flex-col md:overflow-x-visible md:border-b-0 md:border-l">
             {experiences.map((exp) => (
               <button
                 key={exp.id}
                 onClick={() => setActiveTab(exp.id)}
                 className={cn(
-                  "px-4 py-3 text-left text-sm font-medium whitespace-nowrap transition-all relative",
-                  "hover:bg-primary/5 hover:text-primary",
-                  activeTab === exp.id
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground"
+                  "relative whitespace-nowrap px-4 py-3 text-left font-mono text-[0.72rem] uppercase tracking-[0.18em] transition-all",
+                  "hover:text-primary",
+                  activeTab === exp.id ? "bg-card text-primary" : "text-muted-foreground"
                 )}
               >
                 {activeTab === exp.id && (
-                  <span className="absolute left-0 top-0 bottom-0 w-0.5 md:w-0.5 bg-primary" />
+                  <span className="absolute bottom-0 left-0 right-0 h-px bg-primary md:bottom-auto md:top-0 md:right-auto md:h-full md:w-px" />
                 )}
                 {exp.company}
               </button>
             ))}
           </div>
 
-          {/* Content */}
           {activeExperience && (
-            <div className="py-2">
-              <h3 className="text-xl font-semibold mb-1">
-                {activeExperience.role}{" "}
-                <span className="text-primary">@ {activeExperience.company}</span>
+            <div className="brutal-panel px-7 py-8">
+              <h3 className="mb-2 font-(--font-display) text-2xl font-semibold uppercase tracking-[-0.04em]">
+                {activeExperience.role} <span className="text-primary">@ {activeExperience.company}</span>
               </h3>
-              <p className="text-sm text-muted-foreground font-mono mb-6">
+              <p className="mb-6 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-muted-foreground">
                 {activeExperience.period}
               </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">
                 {activeExperience.description}
               </p>
-              <a href={activeExperience.link} target="_blank" rel="noopener noreferrer" className="text-white  px-4 py-2 border border-primary rounded-sm-sm font-medium hover:bg-primary/90 transition-all mb-6 inline-block">
-                Visitar Site
+              <a
+                href={activeExperience.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="brutal-button mb-6 border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
+              >
+                Visitar o site
                 <span className="ml-2">↗</span>
               </a>
               <div className="flex flex-wrap gap-2">
                 {activeExperience.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-sm-sm"
-                  >
+                  <span key={skill} className="brutal-tag border-primary/40 text-primary">
                     {skill}
                   </span>
                 ))}

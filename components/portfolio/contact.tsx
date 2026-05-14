@@ -6,41 +6,39 @@ import Link from "next/link"
 export function Contact() {
   return (
     <section id="contato" className="py-24 sm:py-32">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        {/* Section header */}
-        <div className="flex items-center justify-center gap-4 mb-8">
-          <span className="text-primary font-mono text-sm">05.</span>
-          <h2 className="text-2xl sm:text-3xl font-bold">Entre em Contato</h2>
+      <div className="mx-auto max-w-4xl px-6 text-center">
+        <div className="mb-8 flex items-center justify-center gap-4">
+          <span className="section-index">05.</span>
+          <h2 className="text-2xl font-bold uppercase tracking-[-0.04em] sm:text-4xl">Entre em contato</h2>
         </div>
 
-        <p className="text-lg sm:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-          Estou sempre interessado em novos projetos e oportunidades. 
-          Se você tem uma ideia ou quer apenas dizer olá, minha caixa de entrada está sempre aberta!
+        <p className="mx-auto mb-12 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+          Estou sempre interessado em novos projetos e oportunidades. Se você tem uma ideia ou quer apenas dizer olá,
+          minha caixa de entrada está sempre aberta!
         </p>
 
-        {/* Contact cards */}
-        <div className="grid sm:grid-cols-3 gap-4 mb-12">
+        <div className="mb-12 grid gap-4 sm:grid-cols-3">
           <Link
-            href="mailto:contato@kaykyzioti.dev"
-            className="group p-6 bg-card rounded-sm-sm border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+            href="mailto:kaykyzioti@gmail.com"
+            className="brutal-panel group p-6 transition-[border-color,transform] duration-150 hover:-translate-y-px hover:border-primary"
           >
-            <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-sm-sm bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-border bg-background text-primary transition-colors group-hover:border-primary">
               <Mail size={24} />
             </div>
-            <h3 className="font-medium mb-1">Email</h3>
-            <p className="text-sm text-muted-foreground">contato@kaykyzioti.dev</p>
+            <h3 className="mb-1 font-(--font-display) text-lg font-medium uppercase tracking-[-0.03em]">E-mail</h3>
+            <p className="text-sm text-muted-foreground">kaykyzioti@gmail.com</p>
           </Link>
 
           <Link
             href="https://linkedin.com/in/kaykyzioti"
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-6 bg-card rounded-sm-sm border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+            className="brutal-panel group p-6 transition-[border-color,transform] duration-150 hover:-translate-y-px hover:border-primary"
           >
-            <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-sm-sm bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-border bg-background text-primary transition-colors group-hover:border-primary">
               <Linkedin size={24} />
             </div>
-            <h3 className="font-medium mb-1">LinkedIn</h3>
+            <h3 className="mb-1 font-(--font-display) text-lg font-medium uppercase tracking-[-0.03em]">LinkedIn</h3>
             <p className="text-sm text-muted-foreground">/in/kaykyzioti</p>
           </Link>
 
@@ -48,23 +46,24 @@ export function Contact() {
             href="https://github.com/kaykyone"
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-6 bg-card rounded-sm-sm border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+            className="brutal-panel group p-6 transition-[border-color,transform] duration-150 hover:-translate-y-px hover:border-primary"
           >
-            <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-sm-sm bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-border bg-background text-primary transition-colors group-hover:border-primary">
               <Github size={24} />
             </div>
-            <h3 className="font-medium mb-1">GitHub</h3>
+            <h3 className="mb-1 font-(--font-display) text-lg font-medium uppercase tracking-[-0.03em]">GitHub</h3>
             <p className="text-sm text-muted-foreground">/kaykyone</p>
           </Link>
         </div>
 
-        {/* CTA */}
         <Link
-          href="mailto:contato@kaykyzioti.dev"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-medium rounded-sm-sm hover:opacity-90 transition-all hover:scale-105 text-lg"
+          href="https://wa.me/5517997419297"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="brutal-button border-primary bg-primary px-8 py-4 text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
         >
           <MessageSquare size={20} />
-          Vamos Conversar
+          Vamos conversar
           <ArrowUpRight size={20} />
         </Link>
       </div>
