@@ -11,7 +11,7 @@ const env = {
   GITHUB_REPOSITORY: repository,
 };
 const repositoryName = repository.split("/")[1] || fallbackRepositoryName;
-const basePath = repositoryName.endsWith(".github.io") ? "" : `/${repositoryName}`;
+const basePath = 'https://kaykyone.github.io/'
 
 const command = process.platform === "win32" ? "npm.cmd" : "npm";
 const result = spawnSync(command, ["run", "build"], {
