@@ -5,12 +5,12 @@ import { Github, Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-12">
+    <footer className="border-t border-border bg-card/35 py-12">
       <div className="section-shell">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <Link
             href="/"
-            className="font-mono text-sm uppercase tracking-[0.28em] text-foreground transition-colors hover:text-primary"
+            className="font-mono text-sm uppercase tracking-[0.28em] text-foreground transition-colors duration-300 hover:text-primary"
           >
             <span className="text-primary">{"["}</span>
             Kayky Zioti
@@ -22,7 +22,7 @@ export function Footer() {
               href="https://github.com/kaykyone"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-border p-2 text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+              className="border border-border bg-background/40 p-2 text-muted-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -31,14 +31,14 @@ export function Footer() {
               href="https://linkedin.com/in/kaykyzioti"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-border p-2 text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+              className="border border-border bg-background/40 p-2 text-muted-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </Link>
             <Link
               href="mailto:kaykyzioti@gmail.com"
-              className="border border-border p-2 text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+              className="border border-border bg-background/40 p-2 text-muted-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
               aria-label="Email"
             >
               <Mail size={20} />

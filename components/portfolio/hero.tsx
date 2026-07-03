@@ -1,42 +1,53 @@
 "use client"
 
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
 import { withBasePath } from "@/lib/base-path"
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden border-b border-border pt-20">
-      <div className="absolute inset-x-0 top-24 hidden h-px bg-border lg:block" />
-      <div className="absolute bottom-16 left-6 right-6 h-px bg-border/60" />
+    <section className="relative flex min-h-screen items-center overflow-hidden pt-24">
+      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent" />
 
       <div className="section-shell relative z-10">
-        <div className="grid items-end gap-12 lg:grid-cols-2">
-          <div className="max-w-5xl flex flex-col items-start justify-start">
-            <div className="mb-8 inline-flex items-center gap-3 border border-border bg-card px-4 py-2 animate-fade-in">
-              <span className="h-2 w-2 bg-primary" />
-              <span className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground">
-                Disponível para novos projetos
-              </span>
+        <div className="grid items-end gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(560px,0.9fr)] lg:gap-10">
+          <div className="flex max-w-5xl flex-col items-start z-30 justify-start">
+            <div className="mb-10 inline-flex items-center gap-5">
+              <div className="flex justify-center items-center gap-3">
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground">
+                  IA
+                </span>
+              </div>
+              <div className="flex justify-center items-center gap-3">
+                <span className="size-1 flex bg-primary" />
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground">
+                  Software
+                </span>
+              </div>
+              <div className="flex justify-center items-center gap-3">
+                <span className="size-1 flex bg-primary" />
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground">
+                  Lead Generation
+                </span>
+              </div>
             </div>
 
-            <p className="mb-4 font-mono text-[0.72rem] uppercase tracking-[0.32em] text-primary">
-              Desenvolvedor Full-Stack / Sistemas, Produto, Execução
+            <p className="mb-5 max-w-2xl font-mono text-[1.4rem] uppercase leading-6 tracking-[0.28em] text-primary">
+              Do problema real ao
             </p>
 
-            <h1 className="mb-6 max-w-4xl font-(--font-display) text-5xl font-medium uppercase leading-[0.92] tracking-[0.03em] text-balance text-foreground sm:text-7xl md:text-[5.8rem]">
-              Kayky Zioti
+            <h1 className="mb-8 max-w-4xl font-(--font-display) text-6xl font-semibold uppercase leading-[0.86] tracking-[0.02em] text-balance text-foreground sm:text-6xl md:text-[5.75rem]">
+              Software Funcional.
             </h1>
 
-            <p className="mb-10 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              Transformo operações, serviços e ideias em sistemas web escaláveis, rápidos e claros.
-              Arquitetura moderna, performance e automação com IA, sem excesso visual e sem interfaces genéricas.
+            <p className="mb-12 max-w-2xl border-l border-border pl-5 text-base leading-8 text-muted-foreground sm:text-lg">
+              Software, automação e inteligência aplicada para empresas que querem transformar operação em resultado.
             </p>
 
-            <div className="mb-12 flex flex-col items-start gap-4 sm:flex-row">
+            <div className="mb-12 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-start">
               <Link
                 href="#projetos"
-                className="brutal-button border-primary bg-primary px-8 text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
+                className="brutal-button border-primary bg-primary px-8 text-primary-foreground hover:border-accent hover:bg-accent hover:text-primary-foreground"
               >
                 Ver projetos
               </Link>
@@ -77,19 +88,15 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="hidden lg:flex lg:flex-col lg:items-end lg:justify-between lg:self-stretch">
-            <div className="relative w-full aspect-square">
-              {/* Aura */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-3/4 h-3/4 rounded-full bg-primary/20 blur-3xl" />
-              </div>
-
+          <div className="hidden lg:flex lg:flex-col lg:items-end lg:justify-end lg:self-stretch">
+            <div className="relative flex h-[80vh] w-[min(48vw,780px)] max-w-none translate-x-[2vw] items-end justify-center overflow-visible">
+              <div className="pointer-events-none absolute bottom-[18%] left-1/2 z-0 h-[72vh] w-[72vh] -translate-x-1/2 rounded-full bg-white/20 blur-3xl" />
               <img
                 src={withBasePath("/kaykyzioti.png")}
                 alt="Kayky Zioti"
-                className="relative z-10 w-full h-full object-cover opacity-80"
+                className="relative z-10 h-full w-auto max-w-none origin-bottom scale-[1.10] object-contain object-bottom"
               />
-              <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background to-transparent pointer-events-none z-20 " />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-background via-background/88 to-transparent" />
             </div>
           </div>
         </div>

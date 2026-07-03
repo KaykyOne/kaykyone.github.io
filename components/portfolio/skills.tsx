@@ -44,65 +44,41 @@ const skillCategories = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 sm:py-32">
+    <section id="skills" className="py-28 sm:py-36">
       <div className="section-shell">
         <div className="section-heading">
-          <span className="section-index">03.</span>
-          <h2 className="text-2xl font-medium uppercase tracking-[0.04em] sm:text-4xl">Competências técnicas</h2>
+          <span className="section-index">04.</span>
+          <h2 className="text-3xl font-semibold uppercase tracking-[0.02em] sm:text-5xl">Competências técnicas</h2>
           <div className="section-rule" />
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="brutal-panel group p-6 transition-[border-color,transform] duration-150 hover:-translate-y-px hover:border-primary"
+              className="group border-t border-border/70 pt-5"
             >
-              <div className="relative z-10">
-                <div className="mb-5 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center border border-border bg-background text-primary">
-                    <category.icon size={18} />
-                  </div>
-                  <h3 className="font-(--font-display) text-lg font-medium uppercase tracking-[0.03em]">
-                    {category.title}
-                  </h3>
-                </div>
+              <div className="mb-6 flex items-center gap-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-card text-primary transition-colors duration-300 group-hover:text-accent">
+                  <category.icon size={18} />
+                </span>
+                <h3 className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-300 group-hover:text-primary">
+                  {category.title}
+                </h3>
+              </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span key={skill} className="brutal-tag">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+              <div className="flex flex-wrap gap-2 pl-14">
+                {category.skills.map((skill) => (
+                  <span key={skill} className="brutal-tag">
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 border-y border-border py-6">
-          <div className="flex flex-wrap gap-x-8 gap-y-4">
-            {[
-              "React",
-              "Next.js",
-              "TypeScript",
-              "Node.js",
-              "PostgreSQL",
-              "Docker",
-              "TailwindCSS",
-              "Figma",
-              "OpenAI",
-              "Git",
-            ].map((tech, index) => (
-              <span
-                key={index}
-                className="font-(--font-display) text-3xl font-medium uppercase tracking-[0.05em] text-foreground/18 sm:text-5xl"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
+        <div className="mt-20 min-h-28 border-y border-border/45" />
       </div>
     </section>
   )

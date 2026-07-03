@@ -4,77 +4,79 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Bahnschrift", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   --font-code: "Cascadia Mono", "IBM Plex Mono", Consolas, "Courier New", monospace;
-  --background: #0a0a0a;
-  --foreground: #ffffff;
-  --card: #111111;
-  --card-foreground: #ffffff;
-  --popover: #111111;
-  --popover-foreground: #ffffff;
-  --primary: #C680FF;
-  --primary-foreground: #0a0a0a;
-  --secondary: #151515;
-  --secondary-foreground: #d1d1d1;
-  --muted: #111111;
-  --muted-foreground: #8e8e8e;
-  --accent: #C680FF;
-  --accent-foreground: #0a0a0a;
+  --background: #ffffff;
+  --foreground: #0d0d0d;
+  --card: #ffffff;
+  --card-foreground: #0d0d0d;
+  --popover: #ffffff;
+  --popover-foreground: #0d0d0d;
+  --primary: #f4aa44;
+  --primary-foreground: #0d0d0d;
+  --secondary: #ffffff;
+  --secondary-foreground: #3f3f3f;
+  --muted: #f7f7f7;
+  --muted-foreground: #5f5f5f;
+  --accent: #c47a16;
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: #2b2b2b;
-  --input: #171717;
-  --ring: #C680FF;
-  --chart-1: #C680FF;
-  --chart-2: #d1d1d1;
-  --chart-3: #8e8e8e;
-  --chart-4: #ffffff;
-  --chart-5: #555555;
+  --border: #dfdfdf;
+  --input: #ffffff;
+  --ring: #f4aa44;
+  --chart-1: #f4aa44;
+  --chart-2: #0d0d0d;
+  --chart-3: #6f6f6f;
+  --chart-4: #d8d8d8;
+  --chart-5: #c47a16;
+  --grid-line: rgba(13, 13, 13, 0.055);
   --radius: 0.125rem;
-  --sidebar: #111111;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #C680FF;
-  --sidebar-primary-foreground: #0a0a0a;
-  --sidebar-accent: #151515;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #2b2b2b;
-  --sidebar-ring: #C680FF;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0d0d0d;
+  --sidebar-primary: #f4aa44;
+  --sidebar-primary-foreground: #0d0d0d;
+  --sidebar-accent: #f7f7f7;
+  --sidebar-accent-foreground: #0d0d0d;
+  --sidebar-border: #d8d8d8;
+  --sidebar-ring: #f4aa44;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
-  --card: #111111;
-  --card-foreground: #ffffff;
-  --popover: #111111;
-  --popover-foreground: #ffffff;
-  --primary: #C680FF;
-  --primary-foreground: #0a0a0a;
+  --background: #0d0d0d;
+  --foreground: #f4f4f4;
+  --card: #151515;
+  --card-foreground: #f4f4f4;
+  --popover: #151515;
+  --popover-foreground: #f4f4f4;
+  --primary: #f4aa44;
+  --primary-foreground: #0d0d0d;
   --secondary: #151515;
-  --secondary-foreground: #d1d1d1;
-  --muted: #111111;
-  --muted-foreground: #8e8e8e;
-  --accent: #C680FF;
-  --accent-foreground: #0a0a0a;
+  --secondary-foreground: #a3a3a3;
+  --muted: #202020;
+  --muted-foreground: #a3a3a3;
+  --accent: #ffc36a;
+  --accent-foreground: #0d0d0d;
   --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: #ffffff;
-  --border: #2b2b2b;
-  --input: #171717;
-  --ring: #C680FF;
-  --chart-1: #C680FF;
-  --chart-2: #d1d1d1;
-  --chart-3: #8e8e8e;
-  --chart-4: #ffffff;
+  --destructive-foreground: #f4f4f4;
+  --border: #2a2a2a;
+  --input: #202020;
+  --ring: #f4aa44;
+  --chart-1: #f4aa44;
+  --chart-2: #a3a3a3;
+  --chart-3: #686868;
+  --chart-4: #f4f4f4;
   --chart-5: #555555;
-  --sidebar: #111111;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #C680FF;
-  --sidebar-primary-foreground: #0a0a0a;
-  --sidebar-accent: #151515;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #2b2b2b;
-  --sidebar-ring: #C680FF;
+  --grid-line: rgba(244, 244, 244, 0.026);
+  --sidebar: #151515;
+  --sidebar-foreground: #f4f4f4;
+  --sidebar-primary: #f4aa44;
+  --sidebar-primary-foreground: #0d0d0d;
+  --sidebar-accent: #202020;
+  --sidebar-accent-foreground: #f4f4f4;
+  --sidebar-border: #2a2a2a;
+  --sidebar-ring: #f4aa44;
 }
 
 @theme inline {
@@ -129,24 +131,25 @@
   body {
     @apply bg-background text-foreground;
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-    background-size: 96px 96px;
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-attachment: fixed;
+    background-size: 112px 112px;
   }
   section {
     @apply relative;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display), 'Space Grotesk', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-weight: 600;
+    letter-spacing: 0.025em;
   }
 }
 
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -155,38 +158,68 @@
 }
 
 .animate-fade-in {
-  animation: fade-in 0.45s ease-out forwards;
+  animation: fade-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+details.disclosure {
+  @apply border-t border-border/70;
+}
+
+details.disclosure > summary {
+  @apply flex cursor-pointer list-none items-center justify-between gap-4 py-5 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-300 hover:text-primary;
+}
+
+details.disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.disclosure > summary::after {
+  content: "+";
+  @apply text-primary transition-transform duration-300;
+}
+
+details.disclosure[open] > summary::after {
+  content: "-";
+}
+
+details.disclosure > div {
+  animation: fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 ::selection {
-  background-color: color-mix(in srgb, var(--primary) 35%, transparent);
-  color: var(--foreground);
+  background-color: color-mix(in srgb, var(--primary) 70%, transparent);
+  color: var(--primary-foreground);
 }
 
 @utility section-shell {
-  @apply max-w-7xl mx-auto px-6;
+  @apply mx-auto max-w-7xl px-5 sm:px-6 lg:px-8;
 }
 
 @utility section-heading {
-  @apply flex items-center gap-4 mb-16;
+  @apply mb-14 flex items-end gap-4 border-t border-border pt-6 sm:mb-20;
 }
 
 @utility section-index {
-  @apply font-mono text-[0.7rem] uppercase tracking-[0.28em] text-primary;
+  @apply font-mono text-[0.68rem] uppercase tracking-[0.28em] text-primary;
 }
 
 @utility section-rule {
-  @apply h-px flex-1 max-w-xs bg-border;
+  @apply mb-2 h-px flex-1 bg-border;
 }
 
 @utility brutal-panel {
-  @apply border border-border bg-card;
+  @apply border border-border/70 bg-card/90 shadow-[0_24px_80px_rgba(0,0,0,0.18)];
 }
 
 @utility brutal-button {
-  @apply inline-flex items-center justify-center border border-border bg-card px-5 py-3 text-sm font-medium tracking-[0.08em] uppercase transition-[background-color,border-color,color,transform] duration-150 ease-out hover:-translate-y-px;
+  @apply inline-flex items-center justify-center gap-2 border border-border bg-card px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.16em] transition-[background-color,border-color,color,transform] duration-300 ease-out hover:-translate-y-px hover:bg-muted;
 }
 
 @utility brutal-tag {
-  @apply inline-flex items-center border border-border px-3 py-1 text-[0.7rem] font-mono uppercase tracking-[0.12em] text-muted-foreground;
+  @apply inline-flex items-center border border-border bg-background/35 px-3 py-1 text-[0.68rem] font-mono uppercase tracking-[0.12em] text-muted-foreground;
+}
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 }
