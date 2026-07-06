@@ -21,7 +21,7 @@ export function Contact() {
           href="https://wa.me/5517997419297"
           target="_blank"
           rel="noopener noreferrer"
-          className="brutal-button border-primary bg-primary px-8 py-4 text-primary-foreground hover:border-accent hover:bg-accent hover:text-primary-foreground"
+          className="brutal-button bg-primary px-8 py-4 text-primary-foreground hover:bg-accent hover:text-accent-foreground"
         >
           <MessageSquare size={20} />
           Vamos conversar
@@ -32,7 +32,7 @@ export function Contact() {
           <summary>
             <span>Entre em contato</span>
           </summary>
-          <div className="grid gap-px bg-border/70 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-3">
             <Link
               href="mailto:kaykyzioti@gmail.com"
               className="group bg-card p-6 transition-[background-color] duration-300 hover:bg-muted"

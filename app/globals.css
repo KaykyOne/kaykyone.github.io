@@ -7,76 +7,76 @@
   --font-body: "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-display: "Bahnschrift", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   --font-code: "Cascadia Mono", "IBM Plex Mono", Consolas, "Courier New", monospace;
-  --background: #ffffff;
-  --foreground: #0d0d0d;
-  --card: #ffffff;
-  --card-foreground: #0d0d0d;
-  --popover: #ffffff;
-  --popover-foreground: #0d0d0d;
-  --primary: #f4aa44;
-  --primary-foreground: #0d0d0d;
-  --secondary: #ffffff;
+  --background: #f2f2f2;
+  --foreground: #111111;
+  --card: #e5e5e5;
+  --card-foreground: #111111;
+  --popover: #e5e5e5;
+  --popover-foreground: #111111;
+  --primary: #111111;
+  --primary-foreground: #f2f2f2;
+  --secondary: #d7d7d7;
   --secondary-foreground: #3f3f3f;
-  --muted: #f7f7f7;
-  --muted-foreground: #5f5f5f;
-  --accent: #c47a16;
-  --accent-foreground: #ffffff;
+  --muted: #dcdcdc;
+  --muted-foreground: #5c5c5c;
+  --accent: #4d4d4d;
+  --accent-foreground: #f2f2f2;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: #dfdfdf;
-  --input: #ffffff;
-  --ring: #f4aa44;
-  --chart-1: #f4aa44;
-  --chart-2: #0d0d0d;
+  --border: transparent;
+  --input: #dcdcdc;
+  --ring: #111111;
+  --chart-1: #111111;
+  --chart-2: #4d4d4d;
   --chart-3: #6f6f6f;
-  --chart-4: #d8d8d8;
-  --chart-5: #c47a16;
-  --grid-line: rgba(13, 13, 13, 0.055);
+  --chart-4: #a6a6a6;
+  --chart-5: #d7d7d7;
+  --grid-line: transparent;
   --radius: 0.125rem;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #0d0d0d;
-  --sidebar-primary: #f4aa44;
-  --sidebar-primary-foreground: #0d0d0d;
-  --sidebar-accent: #f7f7f7;
-  --sidebar-accent-foreground: #0d0d0d;
-  --sidebar-border: #d8d8d8;
-  --sidebar-ring: #f4aa44;
+  --sidebar: #e5e5e5;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #111111;
+  --sidebar-primary-foreground: #f2f2f2;
+  --sidebar-accent: #dcdcdc;
+  --sidebar-accent-foreground: #111111;
+  --sidebar-border: transparent;
+  --sidebar-ring: #111111;
 }
 
 .dark {
-  --background: #0d0d0d;
-  --foreground: #f4f4f4;
-  --card: #151515;
-  --card-foreground: #f4f4f4;
-  --popover: #151515;
-  --popover-foreground: #f4f4f4;
-  --primary: #f4aa44;
-  --primary-foreground: #0d0d0d;
-  --secondary: #151515;
+  --background: #111111;
+  --foreground: #eeeeee;
+  --card: #1c1c1c;
+  --card-foreground: #eeeeee;
+  --popover: #1c1c1c;
+  --popover-foreground: #eeeeee;
+  --primary: #eeeeee;
+  --primary-foreground: #111111;
+  --secondary: #242424;
   --secondary-foreground: #a3a3a3;
-  --muted: #202020;
+  --muted: #2a2a2a;
   --muted-foreground: #a3a3a3;
-  --accent: #ffc36a;
-  --accent-foreground: #0d0d0d;
+  --accent: #cfcfcf;
+  --accent-foreground: #111111;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: #f4f4f4;
-  --border: #2a2a2a;
-  --input: #202020;
-  --ring: #f4aa44;
-  --chart-1: #f4aa44;
+  --border: transparent;
+  --input: #2a2a2a;
+  --ring: #eeeeee;
+  --chart-1: #eeeeee;
   --chart-2: #a3a3a3;
   --chart-3: #686868;
   --chart-4: #f4f4f4;
   --chart-5: #555555;
-  --grid-line: rgba(244, 244, 244, 0.026);
-  --sidebar: #151515;
-  --sidebar-foreground: #f4f4f4;
-  --sidebar-primary: #f4aa44;
-  --sidebar-primary-foreground: #0d0d0d;
-  --sidebar-accent: #202020;
-  --sidebar-accent-foreground: #f4f4f4;
-  --sidebar-border: #2a2a2a;
-  --sidebar-ring: #f4aa44;
+  --grid-line: transparent;
+  --sidebar: #1c1c1c;
+  --sidebar-foreground: #eeeeee;
+  --sidebar-primary: #eeeeee;
+  --sidebar-primary-foreground: #111111;
+  --sidebar-accent: #2a2a2a;
+  --sidebar-accent-foreground: #eeeeee;
+  --sidebar-border: transparent;
+  --sidebar-ring: #eeeeee;
 }
 
 @theme inline {
@@ -130,11 +130,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image:
-      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-    background-attachment: fixed;
-    background-size: 112px 112px;
+    background-image: none;
   }
   section {
     @apply relative;
@@ -162,11 +158,11 @@
 }
 
 details.disclosure {
-  @apply border-t border-border/70;
+  @apply bg-card/70;
 }
 
 details.disclosure > summary {
-  @apply flex cursor-pointer list-none items-center justify-between gap-4 py-5 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-300 hover:text-primary;
+  @apply flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-300 hover:text-primary;
 }
 
 details.disclosure > summary::-webkit-details-marker {
@@ -196,7 +192,7 @@ details.disclosure > div {
 }
 
 @utility section-heading {
-  @apply mb-14 flex items-end gap-4 border-t border-border pt-6 sm:mb-20;
+  @apply mb-14 flex items-end gap-4 pt-6 sm:mb-20;
 }
 
 @utility section-index {
@@ -204,19 +200,19 @@ details.disclosure > div {
 }
 
 @utility section-rule {
-  @apply mb-2 h-px flex-1 bg-border;
+  @apply hidden;
 }
 
 @utility brutal-panel {
-  @apply border border-border/70 bg-card/90 shadow-[0_24px_80px_rgba(0,0,0,0.18)];
+  @apply bg-card/90 shadow-none;
 }
 
 @utility brutal-button {
-  @apply inline-flex items-center justify-center gap-2 border border-border bg-card px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.16em] transition-[background-color,border-color,color,transform] duration-300 ease-out hover:-translate-y-px hover:bg-muted;
+  @apply inline-flex items-center justify-center gap-2 border-0 bg-foreground px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-background transition-[background-color,color,transform] duration-300 ease-out hover:-translate-y-px hover:bg-muted hover:text-foreground;
 }
 
 @utility brutal-tag {
-  @apply inline-flex items-center border border-border bg-background/35 px-3 py-1 text-[0.68rem] font-mono uppercase tracking-[0.12em] text-muted-foreground;
+  @apply inline-flex items-center border-0 bg-muted px-3 py-1 text-[0.68rem] font-mono uppercase tracking-[0.12em] text-muted-foreground;
 }
 
 ::view-transition-old(root), ::view-transition-new(root) {

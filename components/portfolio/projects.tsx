@@ -58,7 +58,7 @@ const deliveredSites = [
 
 export function Projects() {
   return (
-    <section id="projetos" className="border-y border-border bg-card/35 py-28 sm:py-36">
+    <section id="projetos" className="bg-card/35 py-28 sm:py-36">
       <div className="section-shell">
         <div className="section-heading">
           <span className="section-index">05.</span>
@@ -66,11 +66,11 @@ export function Projects() {
           <div className="section-rule" />
         </div>
 
-        <div className="mb-20 divide-y divide-border/70 border-y border-border/70">
+        <div className="mb-20 grid gap-4">
           {featuredProjects.map((project) => (
             <div
               key={project.title}
-              className="grid gap-6 py-8 lg:grid-cols-[72px_minmax(0,1fr)] lg:gap-8"
+              className="grid gap-6 bg-background/70 p-8 lg:grid-cols-[72px_minmax(0,1fr)] lg:gap-8"
             >
               <div className="flex h-14 w-14 items-center justify-center bg-background text-primary">
                 <Boxes size={28} />
@@ -92,7 +92,7 @@ export function Projects() {
                   </span>
                 </div>
 
-                <div className="border-t border-border/70 pt-5">
+                <div className="pt-5">
                   <p className="mb-6 max-w-2xl leading-7 text-muted-foreground">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
@@ -107,7 +107,7 @@ export function Projects() {
           ))}
         </div>
 
-        <div className="border-t border-border/70 pt-7">
+        <div className="pt-7">
           <h3 className="mb-8 font-(--font-display) text-2xl font-semibold uppercase tracking-[0.02em] text-foreground">
               Projetos acadêmicos
           </h3>
@@ -118,7 +118,7 @@ export function Projects() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group border-t border-border/70 py-6 transition-colors duration-300 hover:border-primary"
+                className="group bg-background/70 p-6 transition-colors duration-300 hover:bg-muted"
               >
                 <div className="mb-4 flex items-start justify-between">
                   <div className="flex h-10 w-10 items-center justify-center bg-card text-primary">
@@ -144,11 +144,11 @@ export function Projects() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border/70 pt-7">
+        <div className="mt-12 pt-7">
           <h3 className="mb-8 font-(--font-display) text-2xl font-semibold uppercase tracking-[0.02em] text-foreground">
               Outros Projetos entregues
           </h3>
-          <div className="divide-y divide-border/70 pb-4">
+          <div className="grid gap-2 pb-4">
             <AnimatedList>
               {deliveredSites.map((site) => (
                 <a
@@ -156,7 +156,7 @@ export function Projects() {
                   href={site.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col gap-2 py-5 transition-colors duration-300 hover:text-primary sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                  className="flex flex-col gap-2 bg-background/70 p-5 transition-colors duration-300 hover:bg-muted hover:text-primary sm:flex-row sm:items-center sm:justify-between sm:gap-4"
                 >
                   <span className="font-(--font-display) text-lg font-medium uppercase tracking-[0.03em]">
                     {site.name}

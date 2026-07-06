@@ -56,7 +56,7 @@ export function Skills() {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="group border-t border-border/70 pt-5"
+              className="group bg-card/70 p-5"
             >
               <div className="mb-6 flex items-center gap-4">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-card text-primary transition-colors duration-300 group-hover:text-accent">
@@ -78,7 +78,7 @@ export function Skills() {
           ))}
         </div>
 
-        <div className="mt-20 min-h-28 border-y border-border/45" />
+        <div className="mt-20 min-h-28 bg-card/45" />
       </div>
     </section>
   )

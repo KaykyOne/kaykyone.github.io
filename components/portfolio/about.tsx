@@ -64,9 +64,9 @@ export function About() {
               <summary>
                 <span>{proofPoints[0]}</span>
               </summary>
-              <div className="space-y-0 border-t border-border/70 pb-2">
+              <div className="space-y-0 px-5 pb-2">
                 {proofPoints.slice(1).map((fact, index) => (
-                  <div key={index} className="flex items-center gap-3 border-b border-border/70 py-4 text-sm uppercase tracking-wider text-muted-foreground last:border-b-0">
+                  <div key={index} className="flex items-center gap-3 py-4 text-sm uppercase tracking-wider text-muted-foreground">
                     <CheckCircle2 className="shrink-0 text-primary" size={16} />
                     <span>{fact}</span>
                   </div>
@@ -75,7 +75,7 @@ export function About() {
             </details>
           </div>
 
-          <div className="grid grid-cols-1 gap-px bg-border/70 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {highlights.map((item, index) => (
               <div
                 key={index}
@@ -83,7 +83,7 @@ export function About() {
                   index === 0 ? "sm:col-span-2 lg:min-h-56" : ""
                 }`}
               >
-                <div className="mb-8 flex h-12 w-12 items-center justify-center border border-border bg-background text-primary transition-colors duration-300 group-hover:border-primary">
+                <div className="mb-8 flex h-12 w-12 items-center justify-center bg-background text-primary transition-colors duration-300 group-hover:bg-foreground group-hover:text-background">
                   <item.icon size={24} />
                 </div>
                 <h3 className={`mb-3 font-(--font-display) font-semibold uppercase tracking-[0.02em] text-foreground ${

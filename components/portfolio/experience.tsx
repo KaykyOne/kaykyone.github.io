@@ -47,7 +47,7 @@ export function Experience() {
   const activeExperience = experiences.find((exp) => exp.id === activeTab)
 
   return (
-    <section id="experiencia" className="border-y border-border bg-card/35 py-28 sm:py-36">
+    <section id="experiencia" className="bg-card/35 py-28 sm:py-36">
       <div className="section-shell">
         <div className="section-heading">
           <span className="section-index">03.</span>
@@ -56,19 +56,19 @@ export function Experience() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-[210px_1fr] md:gap-14 lg:grid-cols-[270px_1fr]">
-          <div className="flex overflow-x-auto border border-border bg-background/40 md:flex-col md:overflow-x-visible">
+          <div className="flex overflow-x-auto gap-2 bg-background/40 md:flex-col md:overflow-x-visible">
             {experiences.map((exp) => (
               <button
                 key={exp.id}
                 onClick={() => setActiveTab(exp.id)}
                 className={cn(
-                  "relative whitespace-nowrap border-r border-border px-4 py-4 text-left font-mono text-[0.72rem] uppercase tracking-[0.18em] transition-all duration-300 md:border-b md:border-r-0",
+                  "relative whitespace-nowrap px-4 py-4 text-left font-mono text-[0.72rem] uppercase tracking-[0.18em] transition-all duration-300",
                   "hover:bg-muted hover:text-primary",
-                  activeTab === exp.id ? "bg-card text-primary" : "text-muted-foreground"
+                  activeTab === exp.id ? "bg-foreground text-background" : "bg-card text-muted-foreground"
                 )}
               >
                 {activeTab === exp.id && (
-                  <span className="absolute bottom-0 left-0 right-0 h-px bg-primary md:bottom-auto md:top-0 md:right-auto md:h-full md:w-px" />
+                  <span className="absolute inset-x-4 bottom-2 h-px bg-background/55 md:inset-x-auto md:inset-y-4 md:left-2 md:h-auto md:w-px" />
                 )}
                 {exp.company}
               </button>
@@ -91,14 +91,14 @@ export function Experience() {
                 href={activeExperience.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="brutal-button mb-7 border-primary bg-primary text-primary-foreground hover:border-accent hover:bg-accent hover:text-primary-foreground"
+                className="brutal-button mb-7 bg-foreground text-background hover:bg-accent hover:text-accent-foreground"
               >
                 Visitar o site
                 <span className="ml-2">↗</span>
               </a>
               <div className="flex flex-wrap gap-2">
                 {activeExperience.skills.map((skill) => (
-                  <span key={skill} className="brutal-tag border-primary/35 text-primary">
+                  <span key={skill} className="brutal-tag text-primary">
                     {skill}
                   </span>
                 ))}

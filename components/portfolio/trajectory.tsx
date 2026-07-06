@@ -42,9 +42,9 @@ export function Trajectory() {
             </p>
           </div>
 
-          <div className="divide-y divide-border/70 border-y border-border/70">
+          <div className="grid gap-4">
             {trajectory.map((item, index) => (
-              <div key={item.title} className="grid gap-5 py-7 sm:grid-cols-[64px_minmax(0,1fr)]">
+              <div key={item.title} className="grid gap-5 bg-card/70 p-7 sm:grid-cols-[64px_minmax(0,1fr)]">
                 <div className="flex items-start gap-4">
                   <span className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-primary">
                     0{index + 1}

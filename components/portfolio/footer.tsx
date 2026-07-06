@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card/35 py-12">
+    <footer className="bg-card/35 py-12">
       <div className="section-shell">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <Link
@@ -22,7 +22,7 @@ export function Footer() {
               href="https://github.com/kaykyone"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-border bg-background/40 p-2 text-muted-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
+              className="bg-background/40 p-2 text-muted-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -31,14 +31,14 @@ export function Footer() {
               href="https://linkedin.com/in/kaykyzioti"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-border bg-background/40 p-2 text-muted-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
+              className="bg-background/40 p-2 text-muted-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </Link>
             <Link
               href="mailto:kaykyzioti@gmail.com"
-              className="border border-border bg-background/40 p-2 text-muted-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
+              className="bg-background/40 p-2 text-muted-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
               aria-label="Email"
             >
               <Mail size={20} />
@@ -50,7 +50,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="mt-8 border-t border-border pt-8 text-center">
+        <div className="mt-8 pt-8 text-center">
           <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
             © {new Date().getFullYear()} Kayky Zioti. Todos os direitos reservados.
           </p>
