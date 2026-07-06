@@ -10,8 +10,6 @@ const env = {
   GITHUB_PAGES: "true",
   GITHUB_REPOSITORY: repository,
 };
-const repositoryName = repository.split("/")[1] || fallbackRepositoryName;
-const basePath = 'https://kaykyone.github.io/'
 
 const command = process.platform === "win32" ? "npm.cmd" : "npm";
 const result = spawnSync(command, ["run", "build"], {
@@ -34,17 +32,4 @@ const distDir = path.join(process.cwd(), "dist");
 
 fs.rmSync(distDir, { recursive: true, force: true });
 fs.cpSync(outDir, distDir, { recursive: true });
-
-for (const fileName of ["index.html", "404.html", "_not-found.html"]) {
-  const filePath = path.join(distDir, fileName);
-  if (!fs.existsSync(filePath)) continue;
-
-  const html = fs.readFileSync(filePath, "utf8");
-  const relativized = html
-    .replaceAll(`"${basePath}/`, '"./')
-    .replaceAll(`'${basePath}/`, "'./")
-    .replaceAll(`"${basePath}"`, '"./"')
-    .replaceAll(`'${basePath}'`, "'./'");
-
-  fs.writeFileSync(filePath, relativized);
-}
+fs.writeFileSync(path.join(distDir, ".nojekyll"), "");
