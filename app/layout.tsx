@@ -73,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className="bg-background scroll-smooth" suppressHydrationWarning>
+    <html lang="pt-BR" className="dark bg-background scroll-smooth" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <StructuredData />
         {children}

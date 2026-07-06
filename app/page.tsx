@@ -7,6 +7,7 @@ import { Skills } from "@/components/portfolio/skills"
 import { Projects } from "@/components/portfolio/projects"
 import { Contact } from "@/components/portfolio/contact"
 import { Footer } from "@/components/portfolio/footer"
+import { WhatsappFloatingButton } from "@/components/portfolio/whatsapp-floating-button"
 
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
       <Projects />
       <Contact />
       <Footer />
+      <WhatsappFloatingButton />
     </main>
   )
 }

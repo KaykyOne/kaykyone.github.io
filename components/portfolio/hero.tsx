@@ -20,48 +20,48 @@ export function Hero() {
 
       <div className="section-shell relative z-10 w-full">
         <div className="grid min-h-[100svh] items-end gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(560px,0.9fr)] lg:gap-10">
-          <div className="z-30 flex max-w-5xl flex-col items-start justify-end pb-8 pt-[48svh] sm:pb-10 lg:min-h-[90vh] lg:pb-14 lg:pt-0">
-            <div className="mb-10 inline-flex items-center gap-5">
+          <div className="z-30 flex max-w-5xl flex-col items-start justify-end pb-7 pt-[46svh] sm:pb-10 sm:pt-[48svh] lg:min-h-[90vh] lg:pb-14 lg:pt-0">
+            <div className="mb-6 flex max-w-full flex-wrap items-center gap-x-4 gap-y-2 sm:mb-10 sm:gap-5">
               <div className="flex justify-center items-center gap-3">
-                <span className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground">
+                <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted-foreground sm:text-[0.7rem] sm:tracking-[0.22em]">
                   IA
                 </span>
               </div>
               <div className="flex justify-center items-center gap-3">
                 <span className="size-1 flex bg-primary" />
-                <span className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground">
+                <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted-foreground sm:text-[0.7rem] sm:tracking-[0.22em]">
                   Software
                 </span>
               </div>
               <div className="flex justify-center items-center gap-3">
                 <span className="size-1 flex bg-primary" />
-                <span className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground">
+                <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted-foreground sm:text-[0.7rem] sm:tracking-[0.22em]">
                   Lead Generation
                 </span>
               </div>
             </div>
 
-            <h1 className="mb-8 max-w-4xl font-(--font-display) text-6xl font-semibold uppercase leading-[0.86] tracking-[0.02em] text-balance text-foreground sm:text-6xl md:text-[5.75rem]">
-              <span className="mb-5 block max-w-2xl font-mono text-[1.4rem] font-normal leading-6 tracking-[0.28em] text-primary">
+            <h1 className="mb-6 max-w-4xl font-(--font-display) text-[2.85rem] font-semibold uppercase leading-[0.9] tracking-[0.02em] text-balance text-foreground sm:mb-8 sm:text-6xl md:text-[5.75rem]">
+              <span className="mb-4 block max-w-2xl font-mono text-[0.78rem] font-normal leading-5 tracking-[0.14em] text-primary sm:mb-5 sm:text-[1.4rem] sm:leading-6 sm:tracking-[0.28em]">
                 Kayky Zioti - <strong>Do Problema estrutural ao</strong>
               </span>
               Software Funcional.
             </h1>
 
-            <p className="mb-12 max-w-2xl border-l border-border pl-5 text-base leading-8 text-muted-foreground sm:text-lg">
+            <p className="mb-8 max-w-2xl border-l border-border pl-4 text-sm leading-6 text-muted-foreground sm:mb-12 sm:pl-5 sm:text-lg sm:leading-8">
               Software, automação e inteligência aplicada para empresas que querem transformar operação em resultado.
             </p>
 
-            <div className="mb-12 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-start">
+            <div className="mb-8 flex w-full flex-col items-stretch gap-3 sm:mb-12 sm:w-auto sm:flex-row sm:items-start">
               <Link
                 href="#projetos"
-                className="brutal-button border-primary bg-primary px-8 text-primary-foreground hover:border-accent hover:bg-accent hover:text-primary-foreground"
+                className="brutal-button min-h-12 w-full whitespace-normal border-primary bg-primary px-4 text-center leading-5 text-primary-foreground hover:border-accent hover:bg-accent hover:text-primary-foreground sm:w-auto sm:px-8"
               >
                 Ver projetos
               </Link>
               <Link
                 href="#contato"
-                className="brutal-button border-2 border-foreground bg-transparent px-8 text-foreground hover:border-accent hover:bg-accent hover:text-accent-foreground"
+                className="brutal-button min-h-12 w-full whitespace-normal border-2 border-foreground bg-transparent px-4 text-center leading-5 text-foreground hover:border-accent hover:bg-accent hover:text-accent-foreground sm:w-auto sm:px-8"
               >
                 Entrar em contato
               </Link>
