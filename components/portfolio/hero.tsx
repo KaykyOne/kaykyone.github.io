@@ -6,12 +6,21 @@ import { withBasePath } from "@/lib/base-path"
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden pt-24">
-      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent" />
+    <section className="relative flex min-h-screen items-end overflow-hidden border-b-2 border-foreground/20 pt-0">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[100svh] lg:hidden">
+        <img
+          src={withBasePath("/kaykyzioti.png")}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover object-[58%_top] grayscale"
+        />
+        <div className="absolute inset-0 bg-background/35" />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/75 to-transparent" />
+      </div>
 
-      <div className="section-shell relative z-10">
-        <div className="grid items-end gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(560px,0.9fr)] lg:gap-10">
-          <div className="flex max-w-5xl flex-col items-start z-30 justify-start">
+      <div className="section-shell relative z-10 w-full">
+        <div className="grid min-h-[100svh] items-end gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(560px,0.9fr)] lg:gap-10">
+          <div className="z-30 flex max-w-5xl flex-col items-start justify-end pb-8 pt-[48svh] sm:pb-10 lg:min-h-[90vh] lg:pb-14 lg:pt-0">
             <div className="mb-10 inline-flex items-center gap-5">
               <div className="flex justify-center items-center gap-3">
                 <span className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground">
@@ -34,7 +43,7 @@ export function Hero() {
 
             <h1 className="mb-8 max-w-4xl font-(--font-display) text-6xl font-semibold uppercase leading-[0.86] tracking-[0.02em] text-balance text-foreground sm:text-6xl md:text-[5.75rem]">
               <span className="mb-5 block max-w-2xl font-mono text-[1.4rem] font-normal leading-6 tracking-[0.28em] text-primary">
-                Kayky Zioti - Desenvolvedor Full-Stack
+                Kayky Zioti - <strong>Do Problema estrutural ao</strong>
               </span>
               Software Funcional.
             </h1>
@@ -52,7 +61,7 @@ export function Hero() {
               </Link>
               <Link
                 href="#contato"
-                className="brutal-button px-8 text-foreground hover:border-primary hover:text-primary-foreground"
+                className="brutal-button border-2 border-foreground bg-transparent px-8 text-foreground hover:border-accent hover:bg-accent hover:text-accent-foreground"
               >
                 Entrar em contato
               </Link>
@@ -63,7 +72,7 @@ export function Hero() {
                 href="https://github.com/kaykyone"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="brutal-button h-12 w-12 p-0 text-muted-foreground hover:border-primary hover:text-primary-foreground"
+                className="brutal-button border-primary bg-primary h-12 w-12 p-0 text-primary-foreground hover:border-accent hover:bg-black"
                 aria-label="GitHub"
               >
                 <Github size={18} />
@@ -72,14 +81,14 @@ export function Hero() {
                 href="https://linkedin.com/in/kaykyzioti"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="brutal-button h-12 w-12 p-0 text-muted-foreground hover:border-primary hover:text-primary-foreground"
+                className="brutal-button border-primary bg-primary h-12 w-12 p-0 text-primary-foreground hover:border-accent hover:bg-black"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
               </Link>
               <Link
                 href="mailto:contato@kaykyzioti.dev"
-                className="brutal-button h-12 w-12 p-0 text-muted-foreground hover:border-primary hover:text-primary-foreground"
+                className="brutal-button border-primary bg-primary h-12 w-12 p-0 text-primary-foreground hover:border-accent hover:bg-black"
                 aria-label="E-mail"
               >
                 <Mail size={18} />
@@ -88,14 +97,14 @@ export function Hero() {
           </div>
 
           <div className="hidden lg:flex lg:flex-col lg:items-end lg:justify-end lg:self-stretch">
-            <div className="relative flex h-[80vh] w-[min(48vw,780px)] max-w-none translate-x-[2vw] items-end justify-center overflow-visible">
+            <div className="relative flex h-[90vh] w-[min(48vw,780px)] max-w-none translate-x-[2vw] items-end justify-center overflow-visible ">
               <div className="pointer-events-none absolute bottom-[18%] left-1/2 z-0 h-[72vh] w-[72vh] -translate-x-1/2 rounded-full bg-white/20 blur-3xl" />
               <img
                 src={withBasePath("/kaykyzioti.png")}
                 alt={"Kayky Zioti, desenvolvedor full-stack especialista em software, Next.js e automa\u00e7\u00e3o com IA"}
                 className="relative z-10 h-full w-auto max-w-none origin-bottom scale-[1.10] object-contain object-bottom"
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-background via-background/88 to-transparent" />
+
             </div>
           </div>
         </div>
