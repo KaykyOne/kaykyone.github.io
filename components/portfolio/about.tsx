@@ -1,19 +1,13 @@
 "use client"
 
-import { CheckCircle2, Code2, Rocket, Users, Zap } from "lucide-react"
-
-const activateUsersNumber = 856
+import { Building2, CheckCircle2, Code2, Lightbulb, Rocket, Workflow, Zap } from "lucide-react"
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal"
 
 const highlights = [
   {
     icon: Code2,
     title: "Problema primeiro",
     description: "Processos, operação e negócio antes do código",
-  },
-  {
-    icon: Users,
-    title: `+${activateUsersNumber} Usuários`,
-    description: "Sistemas em produção ativos diariamente",
   },
   {
     icon: Rocket,
@@ -34,68 +28,85 @@ const proofPoints = [
   "Criação de soluções próprias a partir de problemas observados na prática",
 ]
 
+const journey = [
+  { icon: Building2, title: "Contato direto com negócios reais" },
+  { icon: Workflow, title: "Processos manuais identificados" },
+  { icon: Lightbulb, title: "Nascimento da NovusCFC" },
+  { icon: Code2, title: "Construção de soluções web" },
+]
+
 export function About() {
   return (
-    <section id="sobre" className="relative py-28 sm:py-36">
+    <section id="sobre" className="relative py-24 sm:py-32">
       <div className="section-shell">
-        <div className="section-heading">
+        <Reveal className="section-heading">
           <span className="section-index">01.</span>
-          <h2 className="text-3xl font-semibold uppercase tracking-[0.02em] sm:text-5xl">Sobre mim</h2>
-          <div className="section-rule" />
-        </div>
+          <h2 className="text-3xl sm:text-5xl">Sobre mim</h2>
+        </Reveal>
 
         <div className="grid gap-16 lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)] lg:gap-28">
-          <div className="max-w-3xl space-y-7">
+          <Reveal delay={0.1} className="max-w-3xl space-y-6">
             <p className="text-lg leading-8 text-muted-foreground sm:text-xl">
-              Minha relação com tecnologia nasceu da prática. Antes de atuar profissionalmente como desenvolvedor,
-              trabalhei diretamente na rotina de autoescolas ligadas à minha família, acompanhando processos
-              administrativos, atendimento, organização interna e desafios operacionais.
-            </p>
-            <p className="text-lg leading-8 text-muted-foreground sm:text-xl">
-              Essa vivência me mostrou que muitos problemas de uma empresa não começam no código, mas na falta de
-              processos claros, sistemas adequados e ferramentas que realmente acompanhem a rotina do negócio.
+              Minha relação com tecnologia nasceu da prática: antes de desenvolver profissionalmente, vivi a rotina
+              de autoescolas ligadas à minha família, de perto o suficiente pra ver que a maioria dos problemas de
+              uma empresa não começa no código — começa na falta de processos claros.
             </p>
             <p className="text-lg leading-8 text-muted-foreground sm:text-xl">
               <span className="font-medium text-primary">Meu diferencial:</span> entender o problema primeiro e só
               depois construir software útil, claro e funcional.
             </p>
 
-            <details className="disclosure mt-12">
+            <details className="disclosure mt-10">
               <summary>
                 <span>{proofPoints[0]}</span>
               </summary>
-              <div className="space-y-0 px-5 pb-2">
+              <div className="space-y-0 px-2 pb-2">
                 {proofPoints.slice(1).map((fact, index) => (
-                  <div key={index} className="flex items-center gap-3 py-4 text-sm uppercase tracking-wider text-muted-foreground">
+                  <div key={index} className="flex items-center gap-3 py-4 text-sm text-muted-foreground">
                     <CheckCircle2 className="shrink-0 text-primary" size={16} />
                     <span>{fact}</span>
                   </div>
                 ))}
               </div>
             </details>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <RevealGroup delay={0.15} className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {highlights.map((item, index) => (
-              <div
+              <RevealItem
                 key={index}
-                className={`group bg-card/90 p-7 transition-[background-color,color] duration-300 hover:bg-muted ${
-                  index === 0 ? "sm:col-span-2 lg:min-h-56" : ""
+                className={`brutal-panel group p-7 hover:-translate-y-0.5 hover:shadow-card-hover ${
+                  index === 0 ? "sm:col-span-2" : ""
                 }`}
               >
-                <div className="mb-8 flex h-12 w-12 items-center justify-center bg-background text-primary transition-colors duration-300 group-hover:bg-foreground group-hover:text-background">
+                <div className="mb-6 grid size-12 place-items-center rounded-md bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                   <item.icon size={24} />
                 </div>
-                <h3 className={`mb-3 font-(--font-display) font-semibold uppercase tracking-[0.02em] text-foreground ${
-                  index === 0 ? "text-3xl sm:text-4xl" : "text-xl"
-                }`}>
+                <h3 className="mb-2 font-serif text-xl text-foreground">
                   {item.title}
                 </h3>
                 <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+
+        <Reveal delay={0.2} className="mt-20 pt-4">
+          <p className="mb-8 text-xs font-medium text-muted-foreground">Da vivência operacional ao software</p>
+          <div className="grid gap-6 sm:grid-cols-4 sm:gap-4">
+            {journey.map((step, index) => (
+              <div key={step.title} className="relative flex items-center gap-3 sm:flex-col sm:items-start sm:gap-4">
+                {index < journey.length - 1 && (
+                  <span className="absolute left-[19px] top-10 hidden h-px w-full bg-border sm:block" />
+                )}
+                <span className="relative z-10 grid size-10 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+                  <step.icon size={18} />
+                </span>
+                <h4 className="font-serif text-base leading-tight text-foreground sm:text-lg">{step.title}</h4>
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

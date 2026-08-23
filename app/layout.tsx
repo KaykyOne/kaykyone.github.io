@@ -1,10 +1,31 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+import { Inter, Hedvig_Letters_Serif } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { withBasePath } from '@/lib/base-path'
 import { StructuredData } from '@/components/seo/structured-data'
+import { cn } from '@/lib/utils'
 
 const siteUrl = 'https://kayky.dev.br'
+
+const inter = Inter({
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap',
+  variable: '--font-body',
+})
+
+const hedvigLettersSerif = Hedvig_Letters_Serif({
+  weight: '400',
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap',
+  variable: '--font-display',
+})
+
+const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`
+
+export const viewport: Viewport = {
+  themeColor: '#440C38',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -73,7 +94,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className="dark bg-background scroll-smooth" suppressHydrationWarning>
+    <html
+      lang="pt-BR"
+      className={cn(inter.variable, hedvigLettersSerif.variable, 'bg-background scroll-smooth')}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="font-sans antialiased">
         <StructuredData />
         {children}

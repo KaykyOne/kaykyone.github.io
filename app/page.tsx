@@ -1,10 +1,10 @@
 import { Header } from "@/components/portfolio/header"
 import { Hero } from "@/components/portfolio/hero"
 import { About } from "@/components/portfolio/about"
-import { Trajectory } from "@/components/portfolio/trajectory"
 import { Experience } from "@/components/portfolio/experience"
 import { Skills } from "@/components/portfolio/skills"
 import { Projects } from "@/components/portfolio/projects"
+import { ClientsMap } from "@/components/portfolio/clients-map-loader"
 import { Contact } from "@/components/portfolio/contact"
 import { Footer } from "@/components/portfolio/footer"
 import { WhatsappFloatingButton } from "@/components/portfolio/whatsapp-floating-button"
@@ -18,10 +18,10 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
-      <Trajectory />
       <Experience />
       <Skills />
       <Projects />
+      <ClientsMap />
       <Contact />
       <Footer />
       <WhatsappFloatingButton />

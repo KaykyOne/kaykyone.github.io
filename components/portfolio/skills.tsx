@@ -8,6 +8,7 @@ import {
   Palette,
   Terminal,
 } from "lucide-react"
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal"
 
 const skillCategories = [
   {
@@ -44,41 +45,38 @@ const skillCategories = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-28 sm:py-36">
+    <section id="skills" className="py-24 sm:py-32">
       <div className="section-shell">
-        <div className="section-heading">
-          <span className="section-index">04.</span>
-          <h2 className="text-3xl font-semibold uppercase tracking-[0.02em] sm:text-5xl">Competências técnicas</h2>
-          <div className="section-rule" />
-        </div>
+        <Reveal className="section-heading">
+          <span className="section-index">03.</span>
+          <h2 className="text-3xl sm:text-5xl">Competências técnicas</h2>
+        </Reveal>
 
-        <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
+        <RevealGroup className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
           {skillCategories.map((category, index) => (
-            <div
+            <RevealItem
               key={index}
-              className="group bg-card/70 p-5"
+              className="brutal-panel group p-6"
             >
               <div className="mb-6 flex items-center gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-card text-primary transition-colors duration-300 group-hover:text-accent">
+                <span className="grid size-11 shrink-0 place-items-center rounded-md bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                   <category.icon size={18} />
                 </span>
-                <h3 className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-300 group-hover:text-primary">
+                <h3 className="font-serif text-lg tracking-[-0.02em] text-foreground">
                   {category.title}
                 </h3>
               </div>
 
-              <div className="flex flex-wrap gap-2 pl-14">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <span key={skill} className="brutal-tag">
                     {skill}
                   </span>
                 ))}
               </div>
-            </div>
+            </RevealItem>
           ))}
-        </div>
-
-        <div className="mt-20 min-h-28 bg-card/45" />
+        </RevealGroup>
       </div>
     </section>
   )

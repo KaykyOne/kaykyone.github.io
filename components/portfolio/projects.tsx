@@ -1,15 +1,18 @@
 "use client"
 
-import { ArrowUpRight, Boxes, Github } from "lucide-react"
-import { AnimatedList } from "@/components/ui/animated-list"
+import { ArrowUpRight, Boxes, GraduationCap, Link2 } from "lucide-react"
+import Image from "next/image"
+import { withBasePath } from "@/lib/base-path"
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal"
 
 const featuredProjects = [
   {
     title: "NovusCFC",
-    description: "Software criado a partir da vivência real com a rotina de autoescolas familiares. O projeto nasceu para organizar processos, reduzir trabalho manual e transformar demandas operacionais em uma solução digital mais simples, prática e escalável.",
+    description: "Software criado a partir da vivência real com a rotina de autoescolas familiares. Organiza processos, reduz trabalho manual e transforma demandas operacionais em uma solução digital simples e escalável.",
     tech: ["TypeScript", "Express.js", "Next.js", "React", "PostgreSQL"],
     status: "Em produção",
     image: "/novuscfc.png",
+    caseStudyHref: "/projetos/novuscfc",
     featured: true,
   },
   {
@@ -18,6 +21,7 @@ const featuredProjects = [
     tech: ["TypeScript", "Express.js", "Next.js", "OpenAI API", "Supabase"],
     status: "Em produção",
     image: "/chatzinho.png",
+    caseStudyHref: "/projetos/chatzinho",
     featured: true,
   },
 ]
@@ -54,120 +58,169 @@ const deliveredSites = [
     name: "Autoescola Ideal",
     link: "https://autoescolaidealjales.com.br",
   },
+  {
+    name: "Baruch Marketplace",
+    link: "https://baruchmarketplace.com/",
+  },
+  {
+    name: "Chá de Bebê do Teodoro",
+    link: "https://chadoteodoro.github.io/",
+  },
+  {
+    name: "Blog Loco por Vino",
+    link: "https://www.locoporvino.com/",
+  },
+  {
+    name: "Bethel Elevadores",
+    link: "https://www.bethelelevadores.com.br/",
+  },
+]
+
+const stats = [
+  { value: featuredProjects.length, label: "Em destaque" },
+  { value: otherProjects.length, label: "Acadêmicos" },
+  { value: deliveredSites.length, label: "Sites entregues" },
 ]
 
 export function Projects() {
   return (
-    <section id="projetos" className="bg-card/35 py-28 sm:py-36">
+    <section id="projetos" className="bg-surface py-24 sm:py-32">
       <div className="section-shell">
-        <div className="section-heading">
-          <span className="section-index">05.</span>
-          <h2 className="text-3xl font-semibold uppercase tracking-[0.02em] sm:text-5xl">Principais Projetos</h2>
-          <div className="section-rule" />
+        <Reveal className="section-heading">
+          <span className="section-index">04.</span>
+          <h2 className="text-3xl sm:text-5xl">Principais Projetos</h2>
+        </Reveal>
+
+        <div className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <p className="max-w-xl leading-7 text-muted-foreground">
+            Uma seleção do que já construí: de produtos em produção resolvendo problemas reais de negócio a
+            experimentos pessoais e sites entregues para clientes.
+          </p>
+          <div className="flex gap-6">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="font-serif text-3xl text-primary">{stat.value}</p>
+                <p className="text-xs text-muted-foreground">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mb-20 grid gap-4">
+        <RevealGroup className="mb-20 grid gap-6 sm:grid-cols-2">
           {featuredProjects.map((project) => (
-            <div
+            <RevealItem
               key={project.title}
-              className="grid gap-6 bg-background/70 p-8 lg:grid-cols-[72px_minmax(0,1fr)] lg:gap-8"
+              className="group"
             >
-              <div className="flex h-14 w-14 items-center justify-center bg-background text-primary">
-                <Boxes size={28} />
+              <a href={project.caseStudyHref} className="brutal-panel flex h-full flex-col overflow-hidden hover:-translate-y-0.5 hover:shadow-card-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+              <div className="relative aspect-[4/3] overflow-hidden bg-primary/10">
+                {project.image ? (
+                  <Image
+                    src={withBasePath(project.image)}
+                    alt=""
+                    fill
+                    loading="lazy"
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="grid h-full place-items-center text-primary">
+                    <Boxes size={40} />
+                  </div>
+                )}
+                <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-md bg-background/95 px-3 py-1 text-xs font-medium text-foreground shadow-card">
+                  <span className="size-2 rounded-full bg-secondary" />
+                  {project.status}
+                </span>
               </div>
 
-              <div>
-                <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <p className="mb-2 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-primary">
-                      Projeto em Destaque
-                    </p>
-                    <h3 className="font-(--font-display) text-3xl font-semibold uppercase leading-none tracking-[0.02em] sm:text-4xl">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <span className="inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-primary">
-                    <span className="h-2 w-2 bg-primary" />
-                    {project.status}
-                  </span>
-                </div>
-
-                <div className="pt-5">
-                  <p className="mb-6 max-w-2xl leading-7 text-muted-foreground">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span key={tech} className="brutal-tag">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="pt-7">
-          <h3 className="mb-8 font-(--font-display) text-2xl font-semibold uppercase tracking-[0.02em] text-foreground">
-              Projetos acadêmicos
-          </h3>
-          <div className="grid gap-4 pb-10 md:grid-cols-2">
-            {otherProjects.map((project, index) => (
-              <a
-                key={index}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-background/70 p-6 transition-colors duration-300 hover:bg-muted"
-              >
-                <div className="mb-4 flex items-start justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center bg-card text-primary">
-                    <Github size={20} />
-                  </div>
-                  <ArrowUpRight className="text-muted-foreground transition-colors group-hover:text-primary" size={18} />
-                </div>
-                <h4 className="mb-2 font-(--font-display) text-lg font-medium uppercase tracking-[0.03em] transition-colors group-hover:text-primary">
-                  {project.title}
-                </h4>
-                <p className="mb-4 text-sm leading-6 text-muted-foreground">
-                  {project.description}
+              <div className="flex flex-1 flex-col p-6">
+                <p className="mb-2 inline-flex w-fit items-center rounded-md bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                  Projeto em destaque
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <h3 className="mb-2 font-serif text-2xl">{project.title}</h3>
+                <p className="mb-5 text-sm leading-6 text-muted-foreground">{project.description}</p>
+                <div className="mt-auto flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
                     <span key={tech} className="brutal-tag">
                       {tech}
                     </span>
                   ))}
                 </div>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
+                  Ver estudo do projeto <ArrowUpRight size={16} />
+                </span>
+              </div>
               </a>
-            ))}
+            </RevealItem>
+          ))}
+        </RevealGroup>
+
+        <div className="pt-2">
+          <div className="mb-8 flex items-center gap-3">
+            <span className="grid size-9 place-items-center rounded-md bg-primary/10 text-primary">
+              <GraduationCap size={18} />
+            </span>
+            <h3 className="font-serif text-2xl text-foreground">Projetos acadêmicos</h3>
           </div>
+          <RevealGroup className="grid gap-6 pb-4 sm:grid-cols-2">
+            {otherProjects.map((project, index) => (
+              <RevealItem key={index} className="h-full">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="brutal-panel group flex  flex-col p-6 hover:-translate-y-0.5 hover:shadow-card-hover"
+                >
+                  <div className="mb-4 flex items-start justify-between">
+                    <div className="grid size-10 place-items-center rounded-md bg-muted text-primary">
+                      <Boxes size={20} />
+                    </div>
+                    <ArrowUpRight className="text-muted-foreground transition-colors group-hover:text-primary" size={18} />
+                  </div>
+                  <h4 className="mb-2 font-serif text-lg transition-colors group-hover:text-primary">
+                    {project.title}
+                  </h4>
+                  <p className="mb-4 text-sm leading-6 text-muted-foreground">
+                    {project.description}
+                  </p>
+                  <div className="mt-auto flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span key={tech} className="brutal-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </a>
+              </RevealItem>
+            ))}
+          </RevealGroup>
         </div>
 
-        <div className="mt-12 pt-7">
-          <h3 className="mb-8 font-(--font-display) text-2xl font-semibold uppercase tracking-[0.02em] text-foreground">
-              Outros Projetos entregues
-          </h3>
-          <div className="grid gap-2 pb-4">
-            <AnimatedList>
-              {deliveredSites.map((site) => (
+        <div className="mt-16 pt-2">
+          <div className="mb-8 flex items-center gap-3">
+            <span className="grid size-9 place-items-center rounded-md bg-primary/10 text-primary">
+              <Link2 size={18} />
+            </span>
+            <h3 className="font-serif text-2xl text-foreground">Outros projetos entregues</h3>
+          </div>
+          <RevealGroup className="grid gap-3 pb-4 sm:grid-cols-2">
+            {deliveredSites.map((site) => (
+              <RevealItem key={site.name}>
                 <a
-                  key={site.name}
                   href={site.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col gap-2 bg-background/70 p-5 transition-colors duration-300 hover:bg-muted hover:text-primary sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                  className="brutal-panel group flex items-center justify-between gap-4 p-5 transition-colors duration-300 hover:bg-muted"
                 >
-                  <span className="font-(--font-display) text-lg font-medium uppercase tracking-[0.03em]">
+                  <span className="font-serif text-lg">
                     {site.name}
                   </span>
-                  <span className="break-all font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground sm:text-sm">
-                    {site.link}
-                  </span>
+                  <ArrowUpRight className="shrink-0 text-muted-foreground transition-colors group-hover:text-primary" size={18} />
                 </a>
-              ))}
-            </AnimatedList>
-          </div>
+              </RevealItem>
+            ))}
+          </RevealGroup>
         </div>
       </div>
     </section>

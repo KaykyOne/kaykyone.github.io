@@ -1,67 +1,52 @@
 "use client"
 
-import { Github, Linkedin, Mail } from "lucide-react"
+import { ArrowUpRight, Github, Linkedin, Mail, Sparkles } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { withBasePath } from "@/lib/base-path"
+
+const kicker = ["IA", "Software", "Lead Generation"]
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-end overflow-hidden border-b-2 border-foreground/20 pt-0">
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[100svh] lg:hidden">
-        <img
-          src={withBasePath("/kaykyzioti.png")}
-          alt=""
-          aria-hidden="true"
-          className="h-full w-full object-cover object-[58%_top] grayscale"
-        />
-        <div className="absolute inset-0 bg-background/35" />
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/75 to-transparent" />
-      </div>
-
+    <section className="relative overflow-hidden rounded-b-3xl bg-hero pb-16 pt-28 text-hero-foreground sm:pb-24 sm:pt-32 lg:flex lg:items-center lg:pb-0 min-h-screen">
       <div className="section-shell relative z-10 w-full">
-        <div className="grid min-h-[100svh] items-end gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(560px,0.9fr)] lg:gap-10">
-          <div className="z-30 flex max-w-5xl flex-col items-start justify-end pb-7 pt-[46svh] sm:pb-10 sm:pt-[48svh] lg:min-h-[90vh] lg:pb-14 lg:pt-0">
-            <div className="mb-6 flex max-w-full flex-wrap items-center gap-x-4 gap-y-2 sm:mb-10 sm:gap-5">
-              <div className="flex justify-center items-center gap-3">
-                <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted-foreground sm:text-[0.7rem] sm:tracking-[0.22em]">
-                  IA
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+          <div className="flex max-w-2xl flex-col items-start">
+            <div className="mb-6 flex flex-wrap items-center gap-2 sm:mb-8">
+              {kicker.map((label) => (
+                <span
+                  key={label}
+                  className="rounded-md border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/85"
+                >
+                  {label}
                 </span>
-              </div>
-              <div className="flex justify-center items-center gap-3">
-                <span className="size-1 flex bg-primary" />
-                <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted-foreground sm:text-[0.7rem] sm:tracking-[0.22em]">
-                  Software
-                </span>
-              </div>
-              <div className="flex justify-center items-center gap-3">
-                <span className="size-1 flex bg-primary" />
-                <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted-foreground sm:text-[0.7rem] sm:tracking-[0.22em]">
-                  Lead Generation
-                </span>
-              </div>
+              ))}
             </div>
 
-            <h1 className="mb-6 max-w-4xl font-(--font-display) text-[2.85rem] font-semibold uppercase leading-[0.9] tracking-[0.02em] text-balance text-foreground sm:mb-8 sm:text-6xl md:text-[5.75rem]">
-              <span className="mb-4 block max-w-2xl font-mono text-[0.78rem] font-normal leading-5 tracking-[0.14em] text-primary sm:mb-5 sm:text-[1.4rem] sm:leading-6 sm:tracking-[0.28em]">
-                Kayky Zioti - <strong>Do Problema estrutural ao</strong>
-              </span>
-              Software Funcional.
+            <h1 className="mb-6 max-w-xl text-[2.6rem] leading-[1.05] tracking-[-0.03em] text-balance sm:mb-8 sm:text-6xl lg:text-[4rem]">
+              Do problema estrutural ao{" "}
+              <span className="text-hero-accent">software</span> funcional.
             </h1>
 
-            <p className="mb-8 max-w-2xl border-l border-border pl-4 text-sm leading-6 text-muted-foreground sm:mb-12 sm:pl-5 sm:text-lg sm:leading-8">
-              Software, automação e inteligência aplicada para empresas que querem transformar operação em resultado.
+            <p className="mb-8 max-w-xl text-base leading-8 text-white/75 sm:mb-12 sm:text-lg">
+              <span className="font-medium text-white">Kayky Zioti</span> — software, automação e inteligência
+              aplicada para empresas que querem transformar operação em resultado.
             </p>
 
-            <div className="mb-8 flex w-full flex-col items-stretch gap-3 sm:mb-12 sm:w-auto sm:flex-row sm:items-start">
+            <div className="mb-8 flex w-full flex-col items-stretch gap-3 sm:mb-12 sm:w-auto sm:flex-row sm:items-center">
               <Link
                 href="#projetos"
-                className="brutal-button min-h-12 w-full whitespace-normal border-primary bg-primary px-4 text-center leading-5 text-primary-foreground hover:border-accent hover:bg-accent hover:text-primary-foreground sm:w-auto sm:px-8"
+                className="brutal-button justify-between bg-white py-1 pl-5 pr-1 text-primary hover:bg-white/90"
               >
                 Ver projetos
+                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+                  <ArrowUpRight size={16} />
+                </span>
               </Link>
               <Link
                 href="#contato"
-                className="brutal-button min-h-12 w-full whitespace-normal border-2 border-foreground bg-transparent px-4 text-center leading-5 text-foreground hover:border-accent hover:bg-accent hover:text-accent-foreground sm:w-auto sm:px-8"
+                className="brutal-button border-white/25 bg-transparent px-6 py-3 text-white hover:bg-white/10"
               >
                 Entrar em contato
               </Link>
@@ -72,7 +57,7 @@ export function Hero() {
                 href="https://github.com/kaykyone"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="brutal-button border-primary bg-primary h-12 w-12 p-0 text-primary-foreground hover:border-accent hover:bg-black"
+                className="grid size-11 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition-colors duration-300 hover:bg-white/20"
                 aria-label="GitHub"
               >
                 <Github size={18} />
@@ -81,14 +66,14 @@ export function Hero() {
                 href="https://linkedin.com/in/kaykyzioti"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="brutal-button border-primary bg-primary h-12 w-12 p-0 text-primary-foreground hover:border-accent hover:bg-black"
+                className="grid size-11 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition-colors duration-300 hover:bg-white/20"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
               </Link>
               <Link
-                href="mailto:contato@kaykyzioti.dev"
-                className="brutal-button border-primary bg-primary h-12 w-12 p-0 text-primary-foreground hover:border-accent hover:bg-black"
+                href="mailto:kaykyzioti@gmail.com"
+                className="grid size-11 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition-colors duration-300 hover:bg-white/20"
                 aria-label="E-mail"
               >
                 <Mail size={18} />
@@ -96,16 +81,28 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="hidden lg:flex lg:flex-col lg:items-end lg:justify-end lg:self-stretch">
-            <div className="relative flex h-[90vh] w-[min(48vw,780px)] max-w-none translate-x-[2vw] items-end justify-center overflow-visible ">
-              <div className="pointer-events-none absolute bottom-[18%] left-1/2 z-0 h-[72vh] w-[72vh] -translate-x-1/2 rounded-full bg-white/20 blur-3xl" />
-              <img
-                src={withBasePath("/kaykyzioti.png")}
-                alt={"Kayky Zioti, desenvolvedor full-stack especialista em software, Next.js e automa\u00e7\u00e3o com IA"}
-                className="relative z-10 h-full w-auto max-w-none origin-bottom scale-[1.10] object-contain object-bottom"
-              />
+          <div className="hidden lg:block" />
+        </div>
+      </div>
 
-            </div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[min(48vw,780px)] lg:block">
+        <div className="absolute bottom-[12%] left-1/2 h-[70%] w-[70%] -translate-x-1/2 rounded-full bg-secondary/25 blur-[100px]" />
+        <Image
+          src={withBasePath("/kaykyzioti.png")}
+          alt="Kayky Zioti, desenvolvedor full-stack especialista em software, Next.js e automação com IA"
+          fill
+          priority
+          sizes="48vw"
+          className="object-contain object-bottom"
+        />
+
+        <div className="absolute left-0 top-16 z-20 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-card">
+          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+            <Sparkles size={16} />
+          </span>
+          <div className="leading-tight">
+            <p className="font-serif text-lg text-primary">+856</p>
+            <p className="text-[0.7rem] text-black">usuários em produção</p>
           </div>
         </div>
       </div>

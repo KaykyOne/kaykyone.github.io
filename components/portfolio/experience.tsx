@@ -1,7 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import { ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Reveal } from "@/components/ui/reveal"
 
 const experiences = [
   {
@@ -47,41 +49,33 @@ export function Experience() {
   const activeExperience = experiences.find((exp) => exp.id === activeTab)
 
   return (
-    <section id="experiencia" className="bg-card/35 py-28 sm:py-36">
+    <section id="experiencia" className="bg-surface py-24 sm:py-32">
       <div className="section-shell">
-        <div className="section-heading">
-          <span className="section-index">03.</span>
-          <h2 className="text-3xl font-semibold uppercase tracking-[0.02em] sm:text-5xl">Experiência</h2>
-          <div className="section-rule" />
-        </div>
+        <Reveal className="section-heading">
+          <span className="section-index">02.</span>
+          <h2 className="text-3xl sm:text-5xl">Experiência</h2>
+        </Reveal>
 
         <div className="grid gap-8 md:grid-cols-[210px_1fr] md:gap-14 lg:grid-cols-[270px_1fr]">
-          <div className="flex overflow-x-auto gap-2 bg-background/40 md:flex-col md:overflow-x-visible">
+          <div className="flex gap-2 overflow-x-auto rounded-lg bg-muted p-1 md:flex-col md:overflow-x-visible md:rounded-xl">
             {experiences.map((exp) => (
               <button
                 key={exp.id}
                 onClick={() => setActiveTab(exp.id)}
-                className={cn(
-                  "relative whitespace-nowrap px-4 py-4 text-left font-mono text-[0.72rem] uppercase tracking-[0.18em] transition-all duration-300",
-                  "hover:bg-muted hover:text-primary",
-                  activeTab === exp.id ? "bg-foreground text-background" : "bg-card text-muted-foreground"
-                )}
+                className={cn("tab-pill", activeTab === exp.id ? "tab-pill-active" : "tab-pill-idle")}
               >
-                {activeTab === exp.id && (
-                  <span className="absolute inset-x-4 bottom-2 h-px bg-background/55 md:inset-x-auto md:inset-y-4 md:left-2 md:h-auto md:w-px" />
-                )}
                 {exp.company}
               </button>
             ))}
           </div>
 
           {activeExperience && (
-            <div className="brutal-panel px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-              <h3 className="mb-3 font-(--font-display) text-2xl font-semibold uppercase leading-tight tracking-[0.02em] sm:text-3xl">
+            <div className="brutal-panel p-8 sm:p-10">
+              <h3 className="mb-3 font-serif text-2xl leading-tight sm:text-3xl">
                 {activeExperience.role} <br />
                 <span className="text-primary">@ {activeExperience.company}</span>
               </h3>
-              <p className="mb-6 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="mb-6 text-sm text-muted-foreground">
                 {activeExperience.period}
               </p>
               <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">
@@ -91,10 +85,10 @@ export function Experience() {
                 href={activeExperience.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="brutal-button mb-7 bg-foreground text-background hover:bg-accent hover:text-accent-foreground"
+                className="brutal-button btn-primary mb-7"
               >
                 Visitar o site
-                <span className="ml-2">↗</span>
+                <ArrowUpRight size={16} />
               </a>
               <div className="flex flex-wrap gap-2">
                 {activeExperience.skills.map((skill) => (
