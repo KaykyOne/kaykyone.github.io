@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowUpRight, Github, Linkedin, Mail, Sparkles } from "lucide-react"
+import { ArrowUpRight, Github, Linkedin, Mail, Sparkles, Star } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { withBasePath } from "@/lib/base-path"
@@ -103,6 +103,17 @@ export function Hero() {
           <div className="leading-tight">
             <p className="font-serif text-lg text-primary">+856</p>
             <p className="text-[0.7rem] text-black">usuários em produção</p>
+          </div>
+        </div>
+
+        <div className="absolute -right-2 bottom-24 z-20 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-card sm:bottom-28">
+          <div className="leading-tight">
+            <div className="mb-1 flex text-primary">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
+              ))}
+            </div>
+            <p className="text-[0.7rem] text-black">avaliações no 99Freelas</p>
           </div>
         </div>
       </div>

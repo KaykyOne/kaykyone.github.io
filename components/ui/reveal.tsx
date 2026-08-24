@@ -46,14 +46,15 @@ const itemVariants: Variants = {
 interface RevealGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, keyof MotionProps> {
   children: React.ReactNode
   delay?: number
+  ref?: React.Ref<HTMLDivElement>
 }
 
-export function RevealGroup({ children, className, delay = 0, ...props }: RevealGroupProps) {
+export function RevealGroup({ children, className, delay = 0, ref, ...props }: RevealGroupProps) {
   const reduceMotion = useReducedMotion()
 
   if (reduceMotion) {
     return (
-      <div className={className} {...props}>
+      <div ref={ref} className={className} {...props}>
         {children}
       </div>
     )
@@ -68,6 +69,7 @@ export function RevealGroup({ children, className, delay = 0, ...props }: Reveal
 
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial="hidden"
       whileInView="show"

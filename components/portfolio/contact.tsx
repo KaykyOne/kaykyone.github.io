@@ -11,7 +11,7 @@ export function Contact() {
         <Reveal className="rounded-3xl bg-hero px-6 py-16 text-center text-hero-foreground sm:px-12 sm:py-20">
           <div className="mb-8 flex items-center justify-center gap-4">
             <span className="inline-flex items-center rounded-md bg-white/10 px-3 py-1 text-xs font-medium text-white">
-              06.
+              07.
             </span>
             <h2 className="text-3xl text-white sm:text-5xl">Entre em contato</h2>
           </div>

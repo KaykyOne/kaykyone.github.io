@@ -270,6 +270,14 @@ details.disclosure > div {
   @apply text-muted-foreground hover:bg-primary/8 hover:text-primary;
 }
 
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 ::view-transition-old(root), ::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;

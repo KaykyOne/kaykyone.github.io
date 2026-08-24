@@ -55,7 +55,7 @@ export function ClientsMap() {
     <section id="clientes" className="bg-surface py-24 sm:py-32">
       <div className="section-shell">
         <Reveal className="section-heading">
-          <span className="section-index">05.</span>
+          <span className="section-index">06.</span>
           <h2 className="text-3xl sm:text-5xl">Clientes pelo mundo</h2>
         </Reveal>
 
@@ -121,7 +121,7 @@ export function ClientsMap() {
                 projection="geoEqualEarth"
                 projectionConfig={{ scale: 145 }}
                 width={800}
-                height={420}
+                height={520}
                 className="h-auto w-full"
               >
                 <Geographies geography={worldGeo}>
@@ -147,7 +147,7 @@ export function ClientsMap() {
                 projection="geoMercator"
                 projectionConfig={{ scale: 700, center: [-52, -14] }}
                 width={800}
-                height={420}
+                height={520}
                 className="h-auto w-full"
               >
                 <Geographies geography={brazilGeo}>
