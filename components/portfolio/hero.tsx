@@ -9,7 +9,7 @@ const kicker = ["IA", "Software", "Lead Generation"]
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden rounded-b-3xl bg-hero pb-16 pt-28 text-hero-foreground sm:pb-24 sm:pt-32 lg:flex lg:items-center lg:pb-0 min-h-screen">
+    <section className="relative overflow-hidden rounded-b-3xl bg-hero pb-16 pt-50 text-hero-foreground sm:pb-24 sm:pt-32 lg:flex lg:items-center lg:pb-0 min-h-screen">
       <div className="section-shell relative z-10 w-full">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
           <div className="flex max-w-2xl flex-col items-start">
@@ -37,10 +37,10 @@ export function Hero() {
             <div className="mb-8 flex w-full flex-col items-stretch gap-3 sm:mb-12 sm:w-auto sm:flex-row sm:items-center">
               <Link
                 href="#projetos"
-                className="brutal-button justify-between bg-white py-1 pl-5 pr-1 text-primary hover:bg-white/90"
+                className="brutal-button justify-between bg-white py-1 pl-5 pr-1 text-black hover:bg-white/90"
               >
                 Ver projetos
-                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary/10 text-black">
                   <ArrowUpRight size={16} />
                 </span>
               </Link>
@@ -85,18 +85,17 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[min(48vw,780px)] lg:block">
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[70vw] h-screen lg:block">
         <div className="absolute bottom-[12%] left-1/2 h-[70%] w-[70%] -translate-x-1/2 rounded-full bg-secondary/25 blur-[100px]" />
         <Image
           src={withBasePath("/kaykyzioti.png")}
           alt="Kayky Zioti, desenvolvedor full-stack especialista em software, Next.js e automação com IA"
           fill
           priority
-          sizes="48vw"
           className="object-contain object-bottom"
         />
 
-        <div className="absolute left-0 top-16 z-20 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-card">
+        <div className="absolute left-50 top-60 z-20 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-card">
           <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
             <Sparkles size={16} />
           </span>
@@ -106,7 +105,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="absolute -right-2 bottom-24 z-20 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-card sm:bottom-28">
+        <div className="absolute right-20 bottom-24 z-20 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-card sm:bottom-28">
           <div className="leading-tight">
             <div className="mb-1 flex text-primary">
               {Array.from({ length: 5 }).map((_, i) => (
