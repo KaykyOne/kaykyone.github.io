@@ -1,22 +1,20 @@
 {
-  "name": "my-project",
+  "name": "kaykyone-portfolio",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "npm@10.9.3",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:pages": "node scripts/build-pages.mjs",
-    "start": "next start",
-    "lint": "eslint ."
+    "build:pages": "node scripts/build-pages.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "1.6.1",
-    "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "lucide-react": "^0.564.0",
     "motion": "^12.42.2",
     "next": "16.2.4",
+    "prop-types": "^15.8.1",
     "react": "^19",
     "react-dom": "^19",
     "react-simple-maps": "^3.0.0",

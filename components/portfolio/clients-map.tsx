@@ -22,6 +22,11 @@ const stateLabels: Record<string, string> = {
   MS: "Mato Grosso do Sul",
   PA: "Pará",
   RJ: "Rio de Janeiro",
+  PR: "Paraná",
+  MT: "Mato Grosso",
+  PI: "Piauí",
+  CE: "Ceará",
+  MA: "Maranhão",
 }
 
 const geographyStyle = (isActive: boolean) => ({

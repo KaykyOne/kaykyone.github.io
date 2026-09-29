@@ -4,7 +4,81 @@ import { useEffect, useRef, useState } from "react"
 import { ArrowUpRight, ChevronLeft, ChevronRight, Star } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal"
 
+const freelancerProfile = "https://www.99freelas.com.br/user/kayky-zioti"
+
 const reviews = [
+  {
+    project: "POC e integração com MikroTik",
+    quote: "Ja foi feito mais de três projetos e sempre entrega com muita qualidade, sempre no prazo! Super recomendo, nota 10!",
+    period: "set. 2026 - set. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "Identidade visual, presença digital, melhorias no site e Google Ads",
+    quote: "Um profissional excelente super recomendo, sempre no prazo já fechamos muitos trabalhos e sempre executa de forma muito boa.",
+    period: "set. 2026 - set. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "Melhoria do layout de marketplace",
+    quote: "Bom",
+    period: "set. 2026 - set. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "Portfólio profissional para empresa de manutenção predial",
+    quote: "Um trabalho bem feito, fiquei muito satisfeito com o que foi apresentado. Recomendo e trabalharia novamente. 10/10",
+    period: "set. 2026 - set. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "SEO, Google e campanhas para geração de clientes",
+    quote: "Já contratei o Kayk outras vezes e, mais uma vez, o trabalho foi excelente! É um profissional muito competente, comprometido e que realmente entende do que faz. A comunicação é ótima, cumpre os prazos e entrega um trabalho de muita qualidade. Recomendo de olhos fechados e certamente voltarei a contratar novamente!",
+    period: "ago. 2026 - set. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "Programador para conectar a Binance ao Chart Trading (arrastar stop e ganho)",
+    quote: "Excelente profissional! Muito comprometido, atencioso e responsável. Entregou o trabalho conforme combinado e demonstrou muita qualidade e profissionalismo. Recomendo!",
+    period: "set. 2026 - set. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "Melhoria de estrutura e visibilidade de marketplace",
+    quote: "Bom",
+    period: "set. 2026 - set. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "Automação para encaminhar fotos do WhatsApp entre grupos",
+    quote: "Kayky é fantástico, extremamente competente e principalmente agil e entende as necessidades exatas do seu cliente, proporcionando sempre um solução sob medida para todas as demandas.",
+    period: "ago. 2026 - set. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "Criação de ícones para ERP e PDV offline",
+    quote: "Recomendo a todos da plataforma",
+    period: "ago. 2026 - ago. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "Criação de planilha Excel interativa com painel e relatório por período",
+    quote: "Profissional excepcional! Estou muito satisfeita com o resultado do projeto. Desde o início, demonstrou muita paciência, atenção e comprometimento para entender exatamente o que eu precisava, inclusive fazendo os ajustes necessários até chegar ao resultado esperado. O trabalho ficou excelente, muito organizado, funcional e superou minhas expectativas. É um profissional que realmente se preocupa em entregar um trabalho de qualidade e atender bem o cliente. Com certeza voltarei a trabalhar com ele",
+    period: "ago. 2026 - ago. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "Baruch Marketplace - melhoria de estrutura",
+    quote: "BOM!",
+    period: "ago. 2026 - ago. 2026",
+    link: freelancerProfile,
+  },
+  {
+    project: "Finalizar marketplace de automóveis com anúncios pagos",
+    quote: "Atencioso, prestativo e boa comunicação.",
+    period: "Cancelado",
+    link: freelancerProfile,
+  },
   {
     project: "Site de comércio internacional para card games e produtos 3D",
     quote: "Muito profissional, atende todas as demandas em prazo e com qualidade",
