@@ -6,10 +6,10 @@
 :root {
   color-scheme: light;
   /* Single source of truth for corner radius — every rounded-* utility below derives from this. */
-  --radius: 0.625rem;
+  --radius: 0.75rem;
   --background: #ffffff;
   --foreground: #0d0d0d;
-  --surface: #f5f5f5;
+  --surface: #f7f7f7;
   --card: #ffffff;
   --card-foreground: #0d0d0d;
   --popover: #ffffff;
@@ -18,14 +18,14 @@
   --primary-foreground: #ffffff;
   --secondary: #9c2e75;
   --secondary-foreground: #ffffff;
-  --muted: #f0f0f0;
-  --muted-foreground: #5c5c5c;
+  --muted: #f1f1f1;
+  --muted-foreground: #6b6b6b;
   --accent: #9c2e75;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: #e5e5e5;
-  --input: #e5e5e5;
+  --border: #e8e8e8;
+  --input: #e8e8e8;
   --ring: #440c38;
   --hero: #440c38;
   --hero-foreground: #ffffff;
@@ -39,9 +39,9 @@
   --chart-5: #ecd6e3;
   --grid-line: #ededed;
   --shadow-soft: 0 0 55px rgba(0, 0, 0, 0.04);
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 30px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 2px 4px rgba(0, 0, 0, 0.05), 0 16px 44px rgba(0, 0, 0, 0.1);
-  --shadow-float: 0 12px 32px rgba(0, 0, 0, 0.28);
+  --shadow-card: 0 0 0 0 transparent;
+  --shadow-card-hover: 0 0 0 0 transparent;
+  --shadow-float: 0 12px 32px rgba(0, 0, 0, 0.18);
   --sidebar: #f5f5f5;
   --sidebar-foreground: #0d0d0d;
   --sidebar-primary: #440c38;
@@ -56,8 +56,8 @@
   color-scheme: dark;
   --background: #0a0a0a;
   --foreground: #f2f2f2;
-  --surface: #141414;
-  --card: #171717;
+  --surface: #111111;
+  --card: #161616;
   --card-foreground: #f2f2f2;
   --popover: #171717;
   --popover-foreground: #f2f2f2;
@@ -71,8 +71,8 @@
   --accent-foreground: #0a0a0a;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: #f4f4f4;
-  --border: #262626;
-  --input: #262626;
+  --border: #242424;
+  --input: #242424;
   --ring: #d98fc4;
   --hero: #1a0815;
   --hero-foreground: #f2f2f2;
@@ -85,8 +85,8 @@
   --chart-5: #2a0721;
   --grid-line: #1c1c1c;
   --shadow-soft: 0 0 55px rgba(0, 0, 0, 0.3);
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 40px rgba(0, 0, 0, 0.45);
-  --shadow-card-hover: 0 2px 6px rgba(0, 0, 0, 0.45), 0 20px 56px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 0 0 0 transparent;
+  --shadow-card-hover: 0 0 0 0 transparent;
   --shadow-float: 0 12px 32px rgba(0, 0, 0, 0.5);
   --sidebar: #171717;
   --sidebar-foreground: #f2f2f2;
@@ -101,6 +101,7 @@
 @theme inline {
   --font-sans: var(--font-body);
   --font-serif: var(--font-display);
+  --font-mono: var(--font-code), ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
@@ -167,10 +168,14 @@
     @apply relative;
   }
   h1, h2, h3, h4 {
-    font-family: var(--font-display), Georgia, 'Times New Roman', serif;
-    font-weight: 400;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
+    font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+  h3, h4 {
+    letter-spacing: -0.025em;
+    line-height: 1.15;
   }
   button:not(:disabled), [role="button"]:not([aria-disabled="true"]) {
     cursor: pointer;
@@ -193,7 +198,7 @@
 }
 
 details.disclosure {
-  @apply overflow-hidden rounded-xl border border-border bg-card shadow-card;
+  @apply overflow-hidden rounded-2xl border border-border bg-card;
 }
 
 details.disclosure > summary {
@@ -206,7 +211,7 @@ details.disclosure > summary::-webkit-details-marker {
 
 details.disclosure > summary::after {
   content: "+";
-  @apply grid size-8 shrink-0 place-items-center rounded-full bg-primary/10 text-primary transition-transform duration-300;
+  @apply grid size-8 shrink-0 place-items-center rounded-full bg-muted text-foreground transition-colors duration-300;
 }
 
 details.disclosure[open] > summary::after {
@@ -227,23 +232,28 @@ details.disclosure > div {
 }
 
 @utility section-heading {
-  @apply mb-12 flex flex-col items-start gap-3 pt-4 sm:mb-16;
+  @apply mb-12 flex flex-col items-start gap-5 pt-4 sm:mb-16;
 }
 
+/* Mono eyebrow label ("01.") with a small brand dot — Figma-style section marker. */
 @utility section-index {
-  @apply inline-flex items-center rounded-md bg-primary/10 px-3 py-1 text-xs font-medium text-primary;
+  @apply inline-flex items-center gap-2 font-mono text-[0.7rem] font-medium uppercase tracking-[0.14em] text-muted-foreground;
+  &::before {
+    content: "";
+    @apply size-1.5 rounded-full bg-primary;
+  }
 }
 
 @utility brutal-panel {
-  @apply rounded-xl border border-border bg-card shadow-card transition-[box-shadow,transform,border-color] duration-300;
+  @apply rounded-2xl border border-border bg-card transition-[background-color,border-color,transform] duration-300 hover:border-foreground/15;
 }
 
 @utility brutal-button {
-  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-transparent px-[22px] py-2.5 text-sm font-medium transition-[background-color,color,box-shadow,transform] duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-transparent px-5 py-2.5 text-sm font-medium transition-[background-color,color,border-color,transform] duration-300 ease-out active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
 }
 
 @utility btn-primary {
-  @apply bg-primary text-primary-foreground hover:-translate-y-px hover:bg-secondary hover:shadow-soft;
+  @apply bg-primary text-primary-foreground hover:bg-secondary;
 }
 
 @utility btn-ghost {
@@ -255,19 +265,19 @@ details.disclosure > div {
 }
 
 @utility brutal-tag {
-  @apply inline-flex items-center rounded-md border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground;
+  @apply inline-flex items-center rounded-full bg-muted px-3 py-1 text-xs font-medium text-foreground/70;
 }
 
 @utility tab-pill {
-  @apply relative whitespace-nowrap rounded-lg px-4 py-2.5 text-left text-sm font-medium transition-colors duration-300;
+  @apply relative whitespace-nowrap rounded-full px-4 py-2.5 text-left text-sm font-medium transition-colors duration-300;
 }
 
 @utility tab-pill-active {
-  @apply bg-primary text-primary-foreground shadow-soft;
+  @apply bg-background text-primary shadow-[0_1px_2px_rgba(0,0,0,0.06)] dark:bg-card;
 }
 
 @utility tab-pill-idle {
-  @apply text-muted-foreground hover:bg-primary/8 hover:text-primary;
+  @apply text-muted-foreground hover:text-foreground;
 }
 
 @utility no-scrollbar {

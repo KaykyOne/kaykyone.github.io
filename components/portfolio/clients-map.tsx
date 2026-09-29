@@ -61,7 +61,7 @@ export function ClientsMap() {
       <div className="section-shell">
         <Reveal className="section-heading">
           <span className="section-index">06.</span>
-          <h2 className="text-3xl sm:text-5xl">Clientes pelo mundo</h2>
+          <h2 className="text-4xl sm:text-6xl">Clientes pelo mundo</h2>
         </Reveal>
 
         <div className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -115,7 +115,7 @@ export function ClientsMap() {
           <div className="brutal-panel relative px-4 py-6 sm:px-6 sm:py-8">
             <div className="pointer-events-none absolute left-4 top-4 z-10 min-h-8 sm:left-6 sm:top-6">
               {hovered && (
-                <span className="inline-flex rounded-md bg-foreground px-3 py-1.5 text-xs font-medium text-background shadow-card">
+                <span className="inline-flex rounded-full bg-foreground px-3 py-1.5 text-xs font-medium text-background">
                   {hovered}
                 </span>
               )}

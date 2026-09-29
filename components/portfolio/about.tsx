@@ -41,7 +41,7 @@ export function About() {
       <div className="section-shell">
         <Reveal className="section-heading">
           <span className="section-index">01.</span>
-          <h2 className="text-3xl sm:text-5xl">Sobre mim</h2>
+          <h2 className="text-4xl sm:text-6xl">Sobre mim</h2>
         </Reveal>
 
         <div className="grid gap-16 lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)] lg:gap-28">
@@ -75,11 +75,11 @@ export function About() {
             {highlights.map((item, index) => (
               <RevealItem
                 key={index}
-                className={`brutal-panel group p-7 hover:-translate-y-0.5 hover:shadow-card-hover ${
+                className={`brutal-panel group p-7 ${
                   index === 0 ? "sm:col-span-2" : ""
                 }`}
               >
-                <div className="mb-6 grid size-12 place-items-center rounded-md bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                <div className="mb-6 grid size-12 place-items-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                   <item.icon size={24} />
                 </div>
                 <h3 className="mb-2 font-serif text-xl text-foreground">

@@ -88,7 +88,7 @@ export function Projects() {
       <div className="section-shell">
         <Reveal className="section-heading">
           <span className="section-index">04.</span>
-          <h2 className="text-3xl sm:text-5xl">Principais Projetos</h2>
+          <h2 className="text-4xl sm:text-6xl">Principais Projetos</h2>
         </Reveal>
 
         <div className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -112,7 +112,7 @@ export function Projects() {
               key={project.title}
               className="group"
             >
-              <a href={project.caseStudyHref} className="brutal-panel flex h-full flex-col overflow-hidden hover:-translate-y-0.5 hover:shadow-card-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+              <a href={project.caseStudyHref} className="brutal-panel flex h-full flex-col overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
               <div className="relative aspect-[4/3] overflow-hidden bg-primary/10">
                 {project.image ? (
                   <Image
@@ -128,14 +128,14 @@ export function Projects() {
                     <Boxes size={40} />
                   </div>
                 )}
-                <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-md bg-background/95 px-3 py-1 text-xs font-medium text-foreground shadow-card">
+                <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-background/95 px-3 py-1 text-xs font-medium text-foreground backdrop-blur">
                   <span className="size-2 rounded-full bg-secondary" />
                   {project.status}
                 </span>
               </div>
 
               <div className="flex flex-1 flex-col p-6">
-                <p className="mb-2 inline-flex w-fit items-center rounded-md bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                <p className="mb-2 inline-flex w-fit items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
                   Projeto em destaque
                 </p>
                 <h3 className="mb-2 font-serif text-2xl">{project.title}</h3>
@@ -158,7 +158,7 @@ export function Projects() {
 
         <div className="pt-2">
           <div className="mb-8 flex items-center gap-3">
-            <span className="grid size-9 place-items-center rounded-md bg-primary/10 text-primary">
+            <span className="grid size-9 place-items-center rounded-full bg-primary/10 text-primary">
               <GraduationCap size={18} />
             </span>
             <h3 className="font-serif text-2xl text-foreground">Projetos acadêmicos</h3>
@@ -170,10 +170,10 @@ export function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="brutal-panel group flex  flex-col p-6 hover:-translate-y-0.5 hover:shadow-card-hover"
+                  className="brutal-panel group flex h-full flex-col p-6"
                 >
                   <div className="mb-4 flex items-start justify-between">
-                    <div className="grid size-10 place-items-center rounded-md bg-muted text-primary">
+                    <div className="grid size-10 place-items-center rounded-full bg-muted text-primary">
                       <Boxes size={20} />
                     </div>
                     <ArrowUpRight className="text-muted-foreground transition-colors group-hover:text-primary" size={18} />
@@ -199,7 +199,7 @@ export function Projects() {
 
         <div className="mt-16 pt-2">
           <div className="mb-8 flex items-center gap-3">
-            <span className="grid size-9 place-items-center rounded-md bg-primary/10 text-primary">
+            <span className="grid size-9 place-items-center rounded-full bg-primary/10 text-primary">
               <Link2 size={18} />
             </span>
             <h3 className="font-serif text-2xl text-foreground">Outros projetos entregues</h3>

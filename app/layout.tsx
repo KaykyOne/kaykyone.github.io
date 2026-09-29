@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Hedvig_Letters_Serif } from 'next/font/google'
+import { Inter, Inter_Tight, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { withBasePath } from '@/lib/base-path'
@@ -14,11 +14,16 @@ const inter = Inter({
   variable: '--font-body',
 })
 
-const hedvigLettersSerif = Hedvig_Letters_Serif({
-  weight: '400',
+const interTight = Inter_Tight({
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
   variable: '--font-display',
+})
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-code',
 })
 
 const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`
@@ -96,7 +101,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={cn(inter.variable, hedvigLettersSerif.variable, 'bg-background scroll-smooth')}
+      className={cn(inter.variable, interTight.variable, geistMono.variable, 'bg-background scroll-smooth')}
       suppressHydrationWarning
     >
       <head>

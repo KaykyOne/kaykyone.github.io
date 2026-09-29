@@ -221,7 +221,7 @@ export function Testimonials() {
       <div className="section-shell">
         <Reveal className="section-heading">
           <span className="section-index">05.</span>
-          <h2 className="text-3xl sm:text-5xl">Avaliações de clientes</h2>
+          <h2 className="text-4xl sm:text-6xl">Avaliações de clientes</h2>
         </Reveal>
 
         <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -284,7 +284,7 @@ export function Testimonials() {
                 href={review.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="brutal-panel group flex h-full flex-col p-6 hover:-translate-y-0.5 hover:shadow-card-hover"
+                className="brutal-panel group flex h-full flex-col p-6"
               >
                 <div className="mb-4 flex items-center justify-between">
                   <div className="flex text-primary">

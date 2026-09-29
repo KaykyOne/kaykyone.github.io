@@ -112,13 +112,13 @@ export function Header() {
         </nav>
 
         {isMobileMenuOpen && (
-          <div className="absolute inset-x-4 top-full mt-3 rounded-xl border border-border bg-background p-2 shadow-card md:hidden">
+          <div className="absolute inset-x-4 top-full mt-3 rounded-3xl border border-border bg-background p-2 md:hidden">
             <ul className="flex flex-col gap-1 p-3">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="block rounded-md px-3 py-3 text-[0.95rem] text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+                    className="block rounded-full px-4 py-3 text-[0.95rem] text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
@@ -128,7 +128,7 @@ export function Header() {
               <li className="pt-2">
                 <AnimatedThemeToggler
                   variant="square"
-                  className="mb-3 flex h-11 w-full items-center justify-center rounded-lg bg-muted text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground [&_svg]:h-4 [&_svg]:w-4"
+                  className="mb-3 flex h-11 w-full items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground [&_svg]:h-4 [&_svg]:w-4"
                 />
                 <Link
                   href="https://wa.me/5517997419297"

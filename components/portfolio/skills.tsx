@@ -49,7 +49,7 @@ export function Skills() {
       <div className="section-shell">
         <Reveal className="section-heading">
           <span className="section-index">03.</span>
-          <h2 className="text-3xl sm:text-5xl">Competências técnicas</h2>
+          <h2 className="text-4xl sm:text-6xl">Competências técnicas</h2>
         </Reveal>
 
         <RevealGroup className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
@@ -59,7 +59,7 @@ export function Skills() {
               className="brutal-panel group p-6"
             >
               <div className="mb-6 flex items-center gap-4">
-                <span className="grid size-11 shrink-0 place-items-center rounded-md bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                <span className="grid size-11 shrink-0 place-items-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                   <category.icon size={18} />
                 </span>
                 <h3 className="font-serif text-lg tracking-[-0.02em] text-foreground">

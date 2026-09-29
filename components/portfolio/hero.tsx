@@ -17,14 +17,14 @@ export function Hero() {
               {kicker.map((label) => (
                 <span
                   key={label}
-                  className="rounded-md border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/85"
+                  className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-white/80"
                 >
                   {label}
                 </span>
               ))}
             </div>
 
-            <h1 className="mb-6 max-w-xl text-[2.6rem] leading-[1.05] tracking-[-0.03em] text-balance sm:mb-8 sm:text-6xl lg:text-[4rem]">
+            <h1 className="mb-6 max-w-xl text-[2.75rem] leading-[1] tracking-[-0.045em] text-balance sm:mb-8 sm:text-6xl lg:text-[4.5rem]">
               Do problema estrutural ao{" "}
               <span className="text-hero-accent">software</span> funcional.
             </h1>
@@ -95,7 +95,7 @@ export function Hero() {
           className="object-contain object-bottom"
         />
 
-        <div className="absolute left-50 top-60 z-20 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-card">
+        <div className="absolute left-50 top-60 z-20 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-float">
           <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
             <Sparkles size={16} />
           </span>
@@ -105,7 +105,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="absolute right-20 bottom-24 z-20 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-card sm:bottom-28">
+        <div className="absolute right-20 bottom-24 z-20 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-float sm:bottom-28">
           <div className="leading-tight">
             <div className="mb-1 flex text-primary">
               {Array.from({ length: 5 }).map((_, i) => (

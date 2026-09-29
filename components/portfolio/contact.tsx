@@ -10,10 +10,10 @@ export function Contact() {
       <div className="section-shell">
         <Reveal className="rounded-3xl bg-hero px-6 py-16 text-center text-hero-foreground sm:px-12 sm:py-20">
           <div className="mb-8 flex items-center justify-center gap-4">
-            <span className="inline-flex items-center rounded-md bg-white/10 px-3 py-1 text-xs font-medium text-white">
+            <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-white">
               07.
             </span>
-            <h2 className="text-3xl text-white sm:text-5xl">Entre em contato</h2>
+            <h2 className="text-4xl text-white sm:text-6xl">Entre em contato</h2>
           </div>
 
           <p className="mx-auto mb-12 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">

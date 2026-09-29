@@ -53,11 +53,11 @@ export function Experience() {
       <div className="section-shell">
         <Reveal className="section-heading">
           <span className="section-index">02.</span>
-          <h2 className="text-3xl sm:text-5xl">Experiência</h2>
+          <h2 className="text-4xl sm:text-6xl">Experiência</h2>
         </Reveal>
 
         <div className="grid gap-8 md:grid-cols-[210px_1fr] md:gap-14 lg:grid-cols-[270px_1fr]">
-          <div className="flex gap-2 overflow-x-auto rounded-lg bg-muted p-1 md:flex-col md:overflow-x-visible md:rounded-xl">
+          <div className="flex gap-2 overflow-x-auto rounded-full bg-muted p-1 md:flex-col md:overflow-x-visible md:rounded-3xl md:p-1.5">
             {experiences.map((exp) => (
               <button
                 key={exp.id}
