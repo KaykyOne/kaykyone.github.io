@@ -48,7 +48,7 @@ export function Skills() {
     <section id="skills" className="py-24 sm:py-32">
       <div className="section-shell">
         <Reveal className="section-heading">
-          <span className="section-index">03.</span>
+          <span className="section-index">Repertório técnico</span>
           <h2 className="text-4xl sm:text-6xl">Competências técnicas</h2>
         </Reveal>
 

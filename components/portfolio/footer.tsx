@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Github, Linkedin, Mail } from "lucide-react"
+import { business } from "@/lib/site"
 
 export function Footer() {
   return (
@@ -51,6 +52,10 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-border pt-8 text-center">
+          <p className="mb-3 text-sm text-muted-foreground">
+            {business.name} · Desenvolvimento de software · CNPJ {business.cnpj}
+          </p>
+          <p className="mb-4 text-xs text-muted-foreground">Contratação como pessoa jurídica, com contrato e emissão de nota fiscal.</p>
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Kayky Zioti. Todos os direitos reservados.
           </p>

@@ -1,156 +1,105 @@
-"use client"
+'use client'
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
-import { ScrollProgress } from "@/components/ui/scroll-progress"
+import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { business, services, whatsappHref } from '@/lib/site'
+import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler'
+import { ScrollProgress } from '@/components/ui/scroll-progress'
 
-
-const navItems = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Experiência", href: "#experiencia" },
-  { label: "Habilidades", href: "#skills" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Avaliações", href: "#avaliacoes" },
-  { label: "Clientes", href: "#clientes" },
-  { label: "Contato", href: "#contato" },
+const homeNavigation = [
+  { label: 'Serviços', href: '/#servicos' },
+  { label: 'Projetos', href: '/#projetos' },
+  { label: 'Avaliações', href: '/#avaliacoes' },
+  { label: 'Sobre', href: '/#sobre' },
+  { label: 'Contato', href: '/#contato' },
+]
+const serviceNavigation = [
+  { label: 'Todos os serviços', href: '/#servicos' },
+  { label: 'O serviço', href: '#visao-geral' },
+  { label: 'Exemplos', href: '#exemplos' },
+  { label: 'Dúvidas', href: '#duvidas' },
+  { label: 'Contato', href: '#orcamento' },
 ]
 
 export function Header() {
+  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 64)
-    }
-    handleScroll()
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
+  const headerRef = useRef<HTMLElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const service = services.find((item) => pathname === `/servicos/${item.slug}`)
+  const navItems = service ? serviceNavigation : homeNavigation
+  const contactHref = whatsappHref(service ? `Olá, Kayky! Gostaria de conversar sobre ${service.shortTitle.toLowerCase()}.` : undefined)
   const overHero = !isScrolled
 
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 64)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+    menuRef.current?.querySelector<HTMLAnchorElement>('a')?.focus()
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMobileMenuOpen(false)
+        toggleRef.current?.focus()
+      }
+    }
+    const onOutsideClick = (event: PointerEvent) => {
+      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) setIsMobileMenuOpen(false)
+    }
+    const breakpoint = window.matchMedia('(min-width: 1024px)')
+    const onResize = () => { if (breakpoint.matches) setIsMobileMenuOpen(false) }
+    document.addEventListener('keydown', onKey)
+    document.addEventListener('pointerdown', onOutsideClick)
+    breakpoint.addEventListener('change', onResize)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.removeEventListener('pointerdown', onOutsideClick)
+      breakpoint.removeEventListener('change', onResize)
+    }
+  }, [isMobileMenuOpen])
+
   return (
-    <header
-      className={cn(
-        "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
-        overHero ? "bg-transparent" : "border-b border-border bg-background/85 backdrop-blur-md"
-      )}
-    >
-      <ScrollProgress />
-      <div className="section-shell py-4">
-        <nav className="flex items-center justify-between">
-          <Link
-            href="/"
-            className={cn(
-              "font-serif text-base transition-colors duration-300",
-              overHero ? "text-white/90 hover:text-white" : "text-foreground hover:text-primary"
-            )}
-          >
-            <span className="text-primary">{"["}</span>
-            KZ
-            <span className="text-primary">{"]"}</span>
-          </Link>
-
-          <ul className="hidden items-center gap-7 md:flex">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "text-[0.8125rem] font-normal transition-colors duration-300",
-                    overHero ? "text-white/75 hover:text-white" : "text-muted-foreground hover:text-primary"
-                  )}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <div className="hidden md:flex items-center gap-4">
-            <AnimatedThemeToggler
-              variant="square"
-              className={cn(
-                "flex size-10 items-center justify-center rounded-full transition-colors duration-300 [&_svg]:h-4 [&_svg]:w-4",
-                overHero
-                  ? "bg-white/10 text-white hover:bg-white/20"
-                  : "bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground"
-              )}
-            />
-            <Link
-              href="https://wa.me/5517997419297"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="brutal-button bg-[#25D366] px-4 py-2 text-background"
-            >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 32 32"
-                className="h-5 w-5"
-                fill="currentColor"
-              >
-                <path d="M16.04 3C9.02 3 3.32 8.7 3.32 15.72c0 2.25.59 4.43 1.7 6.36L3.2 28.78l6.86-1.8a12.64 12.64 0 0 0 5.98 1.52h.01c7.02 0 12.72-5.7 12.72-12.72C28.77 8.7 23.06 3 16.04 3Zm.01 23.35h-.01c-1.9 0-3.76-.51-5.39-1.47l-.39-.23-4.07 1.07 1.09-3.97-.26-.41a10.5 10.5 0 0 1-1.6-5.62c0-5.86 4.77-10.63 10.64-10.63 2.84 0 5.51 1.11 7.52 3.12a10.57 10.57 0 0 1 3.12 7.52c0 5.86-4.77 10.62-10.65 10.62Zm5.83-7.96c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16-.21.32-.82 1.04-1.01 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.89-1.78-2.21-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.98-2.34-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.82.68.77.24 1.47.21 2.02.13.62-.09 1.89-.77 2.16-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37Z" />
-              </svg>
-              Vamos conversar
+    <>
+      <a href="#conteudo" className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-foreground px-5 py-3 text-background focus:translate-y-0">Pular para o conteúdo</a>
+      <header ref={headerRef} className={cn('fixed inset-x-0 top-0 z-50 transition-colors duration-200', overHero ? 'bg-hero/95 text-white' : 'border-b border-border bg-background/95 text-foreground', 'backdrop-blur-md')}>
+        <ScrollProgress />
+        <div className="section-shell py-3">
+          <nav aria-label="Navegação principal" className="flex items-center justify-between gap-4">
+            <Link href="/#conteudo" aria-label="Kayky Zioti — início" onClick={() => setIsMobileMenuOpen(false)} className="flex min-h-11 shrink-0 items-center gap-3 font-medium">
+              <span className={cn('grid size-10 place-items-center rounded-full border text-sm', overHero ? 'border-white/25 text-white' : 'border-border text-primary')}>KZ</span>
+              <span className="text-sm sm:text-base">{business.name}</span>
             </Link>
-          </div>
-
-          <button
-            className={cn(
-              "rounded-full p-2 transition-colors duration-300 md:hidden",
-              overHero ? "bg-white/10 text-white" : "bg-muted text-foreground hover:bg-primary hover:text-primary-foreground"
-            )}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Abrir menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </nav>
-
-        {isMobileMenuOpen && (
-          <div className="absolute inset-x-4 top-full mt-3 rounded-3xl border border-border bg-background p-2 md:hidden">
-            <ul className="flex flex-col gap-1 p-3">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="block rounded-full px-4 py-3 text-[0.95rem] text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-2">
-                <AnimatedThemeToggler
-                  variant="square"
-                  className="mb-3 flex h-11 w-full items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground [&_svg]:h-4 [&_svg]:w-4"
-                />
-                <Link
-                  href="https://wa.me/5517997419297"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="brutal-button bg-[#25D366] px-4 py-4 text-background w-full"
-                >
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 32 32"
-                    className="h-5 w-5"
-                    fill="currentColor"
-                  >
-                    <path d="M16.04 3C9.02 3 3.32 8.7 3.32 15.72c0 2.25.59 4.43 1.7 6.36L3.2 28.78l6.86-1.8a12.64 12.64 0 0 0 5.98 1.52h.01c7.02 0 12.72-5.7 12.72-12.72C28.77 8.7 23.06 3 16.04 3Zm.01 23.35h-.01c-1.9 0-3.76-.51-5.39-1.47l-.39-.23-4.07 1.07 1.09-3.97-.26-.41a10.5 10.5 0 0 1-1.6-5.62c0-5.86 4.77-10.63 10.64-10.63 2.84 0 5.51 1.11 7.52 3.12a10.57 10.57 0 0 1 3.12 7.52c0 5.86-4.77 10.62-10.65 10.62Zm5.83-7.96c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16-.21.32-.82 1.04-1.01 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.89-1.78-2.21-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.98-2.34-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.82.68.77.24 1.47.21 2.02.13.62-.09 1.89-.77 2.16-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37Z" />
-                  </svg>
-                  Vamos conversar
-                </Link>
-              </li>
+            <ul className="hidden items-center gap-5 lg:flex">
+              {navItems.map((item) => <li key={item.href}><Link href={item.href} className={cn('inline-flex min-h-11 items-center text-sm transition-colors', overHero ? 'text-white/85 hover:text-white' : 'text-muted-foreground hover:text-primary')}>{item.label}</Link></li>)}
             </ul>
-          </div>
-        )}
-      </div>
-    </header>
+            <div className="flex items-center gap-2">
+              <AnimatedThemeToggler aria-label="Alternar tema claro e escuro" variant="square" className={cn('hidden size-11 items-center justify-center rounded-full lg:flex [&_svg]:size-4', overHero ? 'bg-white/10 text-white' : 'bg-muted text-foreground')} />
+              <Link href={contactHref} target="_blank" rel="noopener noreferrer" className="brutal-button hidden min-h-11 bg-[#25D366] text-[#0d0d0d] sm:inline-flex">Pedir orçamento <ArrowUpRight size={16} aria-hidden="true" /></Link>
+              <button ref={toggleRef} type="button" aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={isMobileMenuOpen} aria-controls="mobile-navigation" onClick={() => setIsMobileMenuOpen((open) => !open)} className={cn('grid size-11 place-items-center rounded-full lg:hidden', overHero ? 'bg-white/10 text-white' : 'bg-muted text-foreground')}>
+                {isMobileMenuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
+              </button>
+            </div>
+          </nav>
+          {isMobileMenuOpen && (
+            <div ref={menuRef} id="mobile-navigation" className="absolute inset-x-4 top-full mt-2 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl border border-border bg-background p-4 text-foreground shadow-float lg:hidden">
+              <ul className="space-y-1">{navItems.map((item) => <li key={item.href}><Link href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="flex min-h-12 items-center rounded-xl px-4 text-base hover:bg-muted">{item.label}</Link></li>)}</ul>
+              <div className="mt-4 border-t border-border pt-4">
+                <Link href={contactHref} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="brutal-button min-h-12 w-full bg-[#25D366] text-[#0d0d0d]">Pedir orçamento pelo WhatsApp <ArrowUpRight size={17} aria-hidden="true" /></Link>
+                <div className="mt-4 flex items-center justify-between px-2"><span className="text-sm text-muted-foreground">Tema do site</span><AnimatedThemeToggler aria-label="Alternar tema claro e escuro" variant="square" className="grid size-11 place-items-center rounded-full bg-muted text-foreground [&_svg]:size-5" /></div>
+              </div>
+            </div>
+          )}
+        </div>
+      </header>
+    </>
   )
 }

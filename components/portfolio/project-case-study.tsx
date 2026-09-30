@@ -57,7 +57,7 @@ export function ProjectCaseStudy({ slug }: { slug: ProjectSlug }) {
   const project = projects[slug]
 
   return (
-    <main className="overflow-hidden bg-background text-foreground">
+    <main id="conteudo" tabIndex={-1} className="overflow-hidden bg-background text-foreground">
       <section className="relative overflow-hidden bg-hero pb-16 pt-28 text-hero-foreground sm:pb-24 sm:pt-36">
         <div className="absolute -right-32 top-20 size-[34rem] rounded-full bg-secondary/20 blur-[130px]" />
         <div className="section-shell relative z-10">

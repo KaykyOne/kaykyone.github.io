@@ -60,7 +60,7 @@ export function ClientsMap() {
     <section id="clientes" className="bg-surface py-24 sm:py-32">
       <div className="section-shell">
         <Reveal className="section-heading">
-          <span className="section-index">06.</span>
+          <span className="section-index">Atendimento remoto</span>
           <h2 className="text-4xl sm:text-6xl">Clientes pelo mundo</h2>
         </Reveal>
 

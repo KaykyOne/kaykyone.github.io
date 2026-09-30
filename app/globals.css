@@ -167,6 +167,13 @@
   section {
     @apply relative;
   }
+  section[id], h2[id], main[id] {
+    scroll-margin-top: 6rem;
+  }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
   h1, h2, h3, h4 {
     font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
     font-weight: 500;
@@ -249,7 +256,11 @@ details.disclosure > div {
 }
 
 @utility brutal-button {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border border-transparent px-5 py-2.5 text-sm font-medium transition-[background-color,color,border-color,transform] duration-300 ease-out active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-transparent px-5 py-2.5 text-sm font-medium transition-[background-color,color,border-color,transform] duration-300 ease-out active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
 }
 
 @utility btn-primary {

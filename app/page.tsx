@@ -9,24 +9,26 @@ import { ClientsMap } from "@/components/portfolio/clients-map-loader"
 import { Contact } from "@/components/portfolio/contact"
 import { Footer } from "@/components/portfolio/footer"
 import { WhatsappFloatingButton } from "@/components/portfolio/whatsapp-floating-button"
+import { Services } from "@/components/portfolio/services"
 
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-
-
+    <>
       <Header />
+      <main id="conteudo" tabIndex={-1} className="min-h-screen bg-background text-foreground">
       <Hero />
+      <Services />
+      <Projects />
+      <Testimonials />
+      <Contact />
       <About />
       <Experience />
       <Skills />
-      <Projects />
-      <Testimonials />
       <ClientsMap />
-      <Contact />
+      </main>
       <Footer />
       <WhatsappFloatingButton />
-    </main>
+    </>
   )
 }

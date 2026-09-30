@@ -52,7 +52,7 @@ export function Experience() {
     <section id="experiencia" className="bg-surface py-24 sm:py-32">
       <div className="section-shell">
         <Reveal className="section-heading">
-          <span className="section-index">02.</span>
+          <span className="section-index">Trajetória profissional</span>
           <h2 className="text-4xl sm:text-6xl">Experiência</h2>
         </Reveal>
 

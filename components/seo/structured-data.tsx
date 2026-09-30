@@ -1,46 +1,62 @@
-import Script from "next/script"
+import { business } from '@/lib/site'
 
-const siteUrl = "https://kayky.dev.br"
+const organizationId = `${business.url}/#organization`
+const personId = `${business.url}/#person`
 
-const profileJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "@id": `${siteUrl}/#profile`,
-  url: siteUrl,
-  name: "Kayky Zioti - Desenvolvedor Full-Stack",
-  description:
-    "Portf\u00f3lio de Kayky Zioti, Kayky dev, desenvolvedor full-stack especializado em Next.js, React, Node.js, TypeScript e automa\u00e7\u00e3o com IA.",
-  mainEntity: {
-    "@type": "Person",
-    "@id": `${siteUrl}/#person`,
-    name: "Kayky Zioti",
-    alternateName: ["Kayky dev", "Kayky desenvolvedor", "Kayky Zioti"],
-    jobTitle: "Desenvolvedor Full-Stack",
-    url: siteUrl,
-    image: `${siteUrl}/kaykyzioti.png`,
-    knowsAbout: [
-      "React",
-      "Next.js",
-      "Node.js",
-      "TypeScript",
-      "Automa\u00e7\u00e3o com IA",
-      "Desenvolvimento Full-Stack",
-    ],
-    sameAs: [
-      "https://github.com/kaykyone",
-      "https://linkedin.com/in/kaykyzioti",
-    ],
-  },
+const businessJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: business.name,
+      url: business.url,
+      logo: `${business.url}/favicon.png`,
+      description: 'Empresa de desenvolvimento de software, sistemas web, sites, automação com inteligência artificial, design e mídia digital, com contrato e emissão de nota fiscal.',
+      taxID: business.cnpj,
+      address: { '@type': 'PostalAddress', addressCountry: 'BR' },
+      email: business.email,
+      telephone: business.telephone,
+      founder: { '@id': personId },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'sales',
+        telephone: business.telephone,
+        email: business.email,
+        url: business.whatsapp,
+        availableLanguage: 'pt-BR',
+      },
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: business.name,
+      alternateName: 'Kayky dev',
+      jobTitle: 'Desenvolvedor full-stack e fundador',
+      url: business.url,
+      image: `${business.url}/kaykyzioti.png`,
+      worksFor: { '@id': organizationId },
+      knowsAbout: ['Desenvolvimento de software', 'Next.js', 'React', 'Laravel', 'Node.js', 'TypeScript', 'Automação com IA', 'Design', 'Mídia digital'],
+      sameAs: ['https://github.com/kaykyone', 'https://linkedin.com/in/kaykyzioti'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${business.url}/#website`,
+      name: business.name,
+      alternateName: 'Kayky dev',
+      url: business.url,
+      inLanguage: 'pt-BR',
+      publisher: { '@id': organizationId },
+    },
+  ],
 }
 
 export function StructuredData() {
   return (
-    <Script
-      id="kayky-profile-json-ld"
+    <script
       type="application/ld+json"
-      strategy="beforeInteractive"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(profileJsonLd).replace(/</g, "\\u003c"),
+        __html: JSON.stringify(businessJsonLd).replace(/</g, "\\u003c"),
       }}
     />
   )

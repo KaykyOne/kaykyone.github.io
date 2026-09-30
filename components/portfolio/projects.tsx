@@ -87,7 +87,7 @@ export function Projects() {
     <section id="projetos" className="bg-surface py-24 sm:py-32">
       <div className="section-shell">
         <Reveal className="section-heading">
-          <span className="section-index">04.</span>
+          <span className="section-index">Soluções na prática</span>
           <h2 className="text-4xl sm:text-6xl">Principais Projetos</h2>
         </Reveal>
 

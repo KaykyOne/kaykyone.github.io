@@ -188,39 +188,20 @@ export function Testimonials() {
     }
   }, [])
 
-  const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
-    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return
-    const track = trackRef.current
-    if (!track) return
-    event.preventDefault()
-    track.scrollLeft += event.deltaY
-  }
-
   const scrollByCard = (direction: 1 | -1) => {
     const track = trackRef.current
     const card = track?.firstElementChild as HTMLElement | null
     if (!track || !card) return
     const gap = parseFloat(getComputedStyle(track).columnGap || "16")
     const distance = (card.getBoundingClientRect().width + gap) * direction
-    const start = track.scrollLeft
-    const duration = 400
-    const startTime = performance.now()
-
-    const step = (now: number) => {
-      const elapsed = now - startTime
-      const t = Math.min(elapsed / duration, 1)
-      const eased = 1 - Math.pow(1 - t, 3)
-      track.scrollLeft = start + distance * eased
-      if (t < 1) requestAnimationFrame(step)
-    }
-    requestAnimationFrame(step)
+    track.scrollBy({ left: distance, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
   }
 
   return (
     <section id="avaliacoes" className="py-24 sm:py-32">
       <div className="section-shell">
         <Reveal className="section-heading">
-          <span className="section-index">05.</span>
+          <span className="section-index">Experiência de quem contratou</span>
           <h2 className="text-4xl sm:text-6xl">Avaliações de clientes</h2>
         </Reveal>
 
@@ -256,7 +237,7 @@ export function Testimonials() {
                 onClick={() => scrollByCard(-1)}
                 disabled={atStart}
                 aria-label="Avaliação anterior"
-                className="grid size-10 place-items-center rounded-full border border-border text-foreground transition-colors hover:bg-muted disabled:pointer-events-none disabled:opacity-30"
+                className="grid size-11 place-items-center rounded-full border border-border text-foreground transition-colors hover:bg-muted disabled:pointer-events-none disabled:opacity-30"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -265,7 +246,7 @@ export function Testimonials() {
                 onClick={() => scrollByCard(1)}
                 disabled={atEnd}
                 aria-label="Próxima avaliação"
-                className="grid size-10 place-items-center rounded-full border border-border text-foreground transition-colors hover:bg-muted disabled:pointer-events-none disabled:opacity-30"
+                className="grid size-11 place-items-center rounded-full border border-border text-foreground transition-colors hover:bg-muted disabled:pointer-events-none disabled:opacity-30"
               >
                 <ChevronRight size={18} />
               </button>
@@ -275,7 +256,9 @@ export function Testimonials() {
 
         <RevealGroup
           ref={trackRef}
-          onWheel={handleWheel}
+          role="region"
+          aria-label="Avaliações de clientes; deslize para ver mais"
+          tabIndex={0}
           className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:mx-0 sm:px-0"
         >
           {reviews.map((review) => (

@@ -2,6 +2,7 @@
 
 import { Building2, CheckCircle2, Code2, Lightbulb, Rocket, Workflow, Zap } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal"
+import { business } from "@/lib/site"
 
 const highlights = [
   {
@@ -40,8 +41,8 @@ export function About() {
     <section id="sobre" className="relative py-24 sm:py-32">
       <div className="section-shell">
         <Reveal className="section-heading">
-          <span className="section-index">01.</span>
-          <h2 className="text-4xl sm:text-6xl">Sobre mim</h2>
+          <span className="section-index">Atendimento direto</span>
+          <h2 className="text-4xl sm:text-6xl">Quem desenvolve seu projeto</h2>
         </Reveal>
 
         <div className="grid gap-16 lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)] lg:gap-28">
@@ -54,6 +55,10 @@ export function About() {
             <p className="text-lg leading-8 text-muted-foreground sm:text-xl">
               <span className="font-medium text-primary">Meu diferencial:</span> entender o problema primeiro e só
               depois construir software útil, claro e funcional.
+            </p>
+            <p className="text-lg leading-8 text-muted-foreground sm:text-xl">
+              Hoje atuo como empresa de desenvolvimento de software, com CNPJ {business.cnpj}, contrato e emissão de nota fiscal.
+              Você fala diretamente comigo para definir o escopo e a proposta de prestação de serviços.
             </p>
 
             <details className="disclosure mt-10">

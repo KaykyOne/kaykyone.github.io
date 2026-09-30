@@ -1,13 +1,15 @@
 import Link from "next/link"
+import { whatsappHref } from "@/lib/site"
 
-export function WhatsappFloatingButton() {
+export function WhatsappFloatingButton({ message }: { message?: string }) {
   return (
     <Link
-      href="https://wa.me/5517997419297"
+      href={whatsappHref(message)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chamar no WhatsApp"
-      className="fixed bottom-5 right-5 z-[70] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-background shadow-float transition-transform duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366] sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
+      aria-label="Pedir orçamento pelo WhatsApp"
+      title="Pedir orçamento pelo WhatsApp"
+      className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-[#0d0d0d] shadow-float transition-transform duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366] sm:right-6 sm:h-16 sm:w-16"
     >
       <svg
         aria-hidden="true"
